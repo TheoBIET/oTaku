@@ -9,8 +9,7 @@ CREATE TABLE "language" (
 
 CREATE TABLE "rating" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "value" TEXT NOT NULL UNIQUE,
-    "description" TEXT NOT NULL
+    "label" TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE "source" (
@@ -20,7 +19,7 @@ CREATE TABLE "source" (
 
 CREATE TABLE "nsfw_color" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "color" TEXT NOT NULL UNIQUE
+    "label" TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE "media_type" (
@@ -57,14 +56,14 @@ CREATE TABLE "anime" (
     "end_date" DATE,
     "num_episodes" INT NOT NULL,
     "synopsis" TEXT NOT NULL,
-    "mean" INT NOT NULL,
+    "mean" FLOAT NOT NULL,
     "rank" INT NOT NULL,
-    "broadcast_day" INT NOT NULL,
-    "broadcast_time" INT NOT NULL,
-    "rating_id" INT NOT NULL REFERENCES "rating"("id"),
-    "source_id" INT NOT NULL REFERENCES "source"("id"),
-    "nsfw_color_id" INT NOT NULL REFERENCES "nsfw_color"("id"),
-    "media_type_id" INT NOT NULL REFERENCES "media_type"("id")
+    "broadcast_day" TEXT,
+    "broadcast_time" TEXT,
+    "rating_id" INT NOT NULL REFERENCES "rating"("id") DEFAULT 1,
+    "source_id" INT NOT NULL REFERENCES "source"("id") DEFAULT 1,
+    "nsfw_color_id" INT NOT NULL REFERENCES "nsfw_color"("id") DEFAULT 1,
+    "media_type_id" INT NOT NULL REFERENCES "media_type"("id") DEFAULT 1
 );
 
 CREATE TABLE "streaming_link" (

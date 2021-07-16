@@ -1,5 +1,7 @@
-const { Pool } = require('pg');
+const { Client } = require('pg');
 
-const client = new Pool(process.env.DATABASE_URL);
+const client = new Client(process.env.DATABASE_URL);
+
+client.connect()
 
 module.exports = client;
