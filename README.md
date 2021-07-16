@@ -7,21 +7,6 @@ o'taku is an API that allows you to find functional streaming links for your fav
 
 -   This project is currently **under development.** 🏗️
 
-## Technologies 🌱
-
-<div style="display:flex;justify-content:space-around;">
-    <div style="display:flex;flex-direction:column;align-items:center;">
-        <img src="./docs/images/pg.png" width="50%" alt="DCM v1">
-        </img>
-        <b>PostgreSQL</b>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;">
-        <img src="./docs/images/pg.png" width="50%" alt="DCM v1">
-        </img>
-        <b>PostgreSQL</b>
-    </div>
-</div>
-
 ## Development stages 🚀
 
 #### 1 - Reflecting on the design of the application
