@@ -1,10 +1,12 @@
 {
-  "name": "otaku-API",
+  "name": "otaku-api",
   "version": "1.0.0",
   "description": "29-05 : Create the API Structure with Express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node",
+    "dev": "nodemon",
+    "db:install": "sqitch revert -y; sqitch deploy;"
   },
   "repository": {
     "type": "git",
