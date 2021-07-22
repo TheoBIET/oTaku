@@ -12,9 +12,9 @@ DROP TABLE
     studio,
     streaming_website,
     anime,
-    streaming_link,
-    anime_has_related,
-    anime_look_like,
+    anime_episode,
+    anime_has_related_anime,
+    anime_has_suggested_anime,
     anime_has_category,
     anime_has_studio;
 

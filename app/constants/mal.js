@@ -35,5 +35,9 @@ module.exports = {
     rating: {
         tableName: "rating",
         data: ['g', 'pg', 'pg_13', 'r', 'r+', 'rx']
+    },
+    language: {
+        tableName: "language",
+        data: ['Français', 'Français sous-titré', 'Japanese']
     }
 };

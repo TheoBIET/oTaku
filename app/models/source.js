@@ -1,20 +1,16 @@
 const sequelize = require('./../database');
 const { DataTypes, Model } = require('sequelize');
 
-class Studio extends Model { }
+class Source extends Model { }
 
-Studio.init({
-  mal_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
+Source.init({
   label: {
     type: DataTypes.TEXT,
     allowNull: false
   }
 }, {
   sequelize,
-  tableName: 'studio'
+  tableName: 'source'
 });
 
-module.exports = Studio;
+module.exports = Source;

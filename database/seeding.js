@@ -1,6 +1,10 @@
-const client = require('../client');
-const {MAL} = require('../constants');
+require('dotenv').config();
+const {Client} = require('pg');
+const {MAL} = require('../app/constants');
 const log = require('log-beautify');
+
+const client = new Client(process.env.DATABASE_URL);
+client.connect(_ => log.success(`Database connected`));
 
 (async _ => {
     for(const key in MAL) {
@@ -15,4 +19,5 @@ const log = require('log-beautify');
             }
         }
     }
+    client.end();
 })();

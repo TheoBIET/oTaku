@@ -1,20 +1,16 @@
 const sequelize = require('./../database');
 const { DataTypes, Model } = require('sequelize');
 
-class Studio extends Model { }
+class NSFW extends Model { }
 
-Studio.init({
-  mal_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
+NSFW.init({
   label: {
     type: DataTypes.TEXT,
     allowNull: false
   }
 }, {
   sequelize,
-  tableName: 'studio'
+  tableName: 'nsfw_color'
 });
 
-module.exports = Studio;
+module.exports = NSFW;

@@ -1,4 +1,7 @@
 module.exports = {
+
+    homeController: require('./home'),
     errorController: require('./error'),
-    homeController: require('./home')
+    searchController: require('./search'),
+
 }

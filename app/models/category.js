@@ -1,15 +1,20 @@
-const CoreModel = require("./coreModel");
+const sequelize = require('./../database');
+const { DataTypes, Model } = require('sequelize');
 
-class Category extends CoreModel {
-    
-    static tableName = 'category'
+class Category extends Model { }
 
-    constructor(obj) {
-        super(obj);
-        this.mal_id = obj.mal_id;
-        this.label = obj.label;
-    }
-
-}
+Category.init({
+  mal_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  },
+  label: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  }
+}, {
+  sequelize,
+  tableName: 'category'
+});
 
 module.exports = Category;

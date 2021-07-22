@@ -1,5 +1,6 @@
 module.exports = {
+
+    vostFree: require('./vostfree'),
     myAnimeList: require('./myAnimeList'),
-    bearer: require('./bearer'),
-    seeding: require('./seeding')
+
 }

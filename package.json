@@ -1,24 +1,11 @@
 {
-  "name": "otaku-api",
+  "name": "otaku-api-v2",
   "version": "1.0.0",
-  "description": "29-05 : Create the API Structure with Express",
+  "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node",
-    "dev": "nodemon",
-    "db:install": "sqitch revert -y; sqitch deploy;"
+  "directories": {
+    "doc": "docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheoBIET/otaku-API.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheoBIET/otaku-API/issues"
-  },
-  "homepage": "https://github.com/TheoBIET/otaku-API#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
@@ -26,6 +13,16 @@
     "express": "^4.17.1",
     "log-beautify": "^1.2.0",
     "pg": "^8.6.0",
-    "puppeteer": "^10.1.0"
-  }
+    "puppeteer": "^10.1.0",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node",
+    "db:install": "sqitch deploy",
+    "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
