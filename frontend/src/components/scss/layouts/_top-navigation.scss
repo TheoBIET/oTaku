@@ -1,0 +1,61 @@
+#Navbar {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+    min-height: 5%;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-around;
+
+    .Navbar__title {
+        display: flex;
+
+        .logo {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-family: 'Otomanopee One', sans-serif;
+        }
+    }
+
+    .Navbar__navList {
+        display: flex;
+    
+        li {
+            margin: 0 0.5em;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .Navbar__searchInput {
+        display: flex;
+        align-items: center;
+
+        input {
+            border: none;
+            font-size: 1.2em;
+            padding: .4em;
+            border-radius: 10px;
+        }
+
+        .search-button {
+            background-color: #93C;
+            padding: .4em .6em;
+            font-size: 1.2em;
+            color: white;
+            border-radius: 10px;
+            transition: .2s ease-in-out;
+            font-weight: bold;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        }
+    }
+}

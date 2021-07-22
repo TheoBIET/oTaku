@@ -1,0 +1,210 @@
+#Navigation {
+    margin-bottom: 3em;
+}
+
+.Navigation__row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.3em 3em;
+
+    .Navigation__row__title {
+        font-size: 1.8em;
+        margin: 1.3rem 0;
+        font-weight: bold;
+        animation: fadeInLeft;
+        animation-duration: 0.1s;
+
+        .japan {
+            color: #93c;
+            font-size: 1.1em;
+        }
+    }
+
+    .Navigation__row__selection {
+        display: flex;
+        justify-content: space-around;
+        border-radius: 10px;
+
+        .Navigation__row__selection__item {
+            width: 10rem;
+            height: 15rem;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            transition: 0.2s ease-in-out;
+            animation: fadeInLeft;
+            animation-duration: 1s;
+            filter: brightness(90%);
+            position: relative;
+
+            .Navigation__row__selection__item__background {
+                width: 100%;
+                height: 100%;
+            }
+
+            .Navigation__row__selection__item__availability {
+                width: 2.2rem;
+                height: 2rem;
+                background-color: #fe1b00;
+                position: absolute;
+                bottom: 3%;
+                right: 5%;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 1.4rem;
+                padding-top: .2rem;
+            }
+
+            .Navigation__row__selection__play {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #93c;
+                font-size: 3rem;
+                display: none;
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .Navigation__row__selection__item__informations {
+                // display: none;
+                padding: 0.8em;
+                position: relative;
+                max-height: 15rem;
+                display: none;
+
+                .item__informations__title {
+                    font-size: 1.3em;
+                    font-weight: bold;
+                    margin: 0.3em 0;
+                    font-family: "Otomanopee One", sans-serif;
+                }
+
+                .japan {
+                    color: #93c;
+                    font-size: 0.9em;
+                }
+
+                .item__informations__nsfw {
+                    border: 1px solid #93c;
+                    display: inline-block;
+                    position: absolute;
+                    padding: 0.5rem 0.4rem;
+                    border-radius: 50%;
+                    top: 10px;
+                    right: 10px;
+                }
+
+                .item__informations__categoryList {
+                    display: flex;
+                    justify-content: space-around;
+
+                    li {
+                        padding: 0.5rem 1rem;
+                        background-color: #93c;
+                        color: white;
+                        border-radius: 10px;
+                        margin: 0.5rem 0;
+                        transition: 0.3s ease-in-out;
+
+                        &:hover {
+                            cursor: pointer;
+                            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                            transform: translateY(-5px) scale(1.01);
+                        }
+                    }
+                }
+
+                p {
+                    padding: 0.4rem;
+                    font-size: 0.8rem;
+                    max-height: 3.2rem;
+                    word-wrap: break-word;
+                    overflow-y: auto;
+                }
+
+                .item_informations_icons {
+                    display: flex;
+                    justify-content: space-around;
+                }
+
+                i {
+                    padding: 0.5em;
+                }
+            }
+
+            &:hover {
+                background-color: #93c;
+                transform: translateY(-10px) scale(1.01);
+                z-index: 1;
+                filter: brightness(100%);
+
+                .Navigation__row__selection__play {
+                    display: block;
+                }
+
+                .Navigation__row__selection__item__informations {
+                    display: block;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    position: absolute;
+                    width: 25rem;
+                    max-height: 13.5rem;
+                    background-color: #fff;
+                    right: 100%;
+                    top: 0;
+                    animation: fadeInRight;
+                    animation-duration: 1.5s;
+                    cursor: normal;
+                    z-index: 100000;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                &:nth-child(1n + 8) {
+                    .Navigation__row__selection__item__informations {
+                        display: block;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        position: absolute;
+                        width: 25rem;
+                        max-height: 13.5rem;
+                        background-color: #fff;
+                        left: -26.6rem;
+                        top: 0;
+                        animation: fadeInLeft;
+                        animation-duration: 1.5s;
+                        cursor: normal;
+                        z-index: 100000;
+    
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .hide {
+                display: none;
+            }
+        }
+    }
+}
+
+.--white {
+    background-color: #fff;
+}
+
+.--black {
+    background-color: #000;
+}
+
+.--grey {
+    background-color: #ddd;
+}
