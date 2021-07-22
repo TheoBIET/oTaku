@@ -124,6 +124,7 @@
                 p {
                     padding: 0.4rem;
                     font-size: 0.8rem;
+                    min-height: 3.2rem;
                     max-height: 3.2rem;
                     word-wrap: break-word;
                     overflow-y: auto;
@@ -154,9 +155,9 @@
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                     position: absolute;
                     width: 25rem;
-                    max-height: 13.5rem;
+                    height: 13.5rem;
                     background-color: #fff;
-                    right: 100%;
+                    left: 100%;
                     top: 0;
                     animation: fadeInRight;
                     animation-duration: 1.5s;
