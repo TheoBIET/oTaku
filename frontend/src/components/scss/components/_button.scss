@@ -1,0 +1,22 @@
+.purple-button {
+    background-color: #93c;
+    padding: 0.4em 0.6em;
+    font-size: 1.2em;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #93c;
+    transition: 0.2s ease-in-out;
+    font-weight: bold;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #f8f8ff;
+        color: #93c;
+        border: 1px solid #93c;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}

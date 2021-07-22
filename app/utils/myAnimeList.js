@@ -149,6 +149,8 @@ module.exports = {
                     //     await dbAnime.addCategory(dbCategory);
                     // }
 
+                    newAnime.reload();
+
                     return newAnime;
                 })
                 .catch(err => {

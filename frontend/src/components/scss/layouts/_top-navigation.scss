@@ -9,14 +9,21 @@
 
     .Navbar__title {
         display: flex;
+        align-items: center;
 
         .logo {
-            width: 50%;
+            width: 10%;
+            padding: 0 1em;
         }
 
         h1 {
             font-size: 2em;
             font-family: 'Otomanopee One', sans-serif;
+
+            h2 {
+                font-size: .5em;
+                color: #93C;
+            }
         }
     }
 
@@ -41,21 +48,7 @@
             font-size: 1.2em;
             padding: .4em;
             border-radius: 10px;
-        }
-
-        .search-button {
-            background-color: #93C;
-            padding: .4em .6em;
-            font-size: 1.2em;
-            color: white;
-            border-radius: 10px;
-            transition: .2s ease-in-out;
-            font-weight: bold;
-
-            &:hover {
-                cursor: pointer;
-                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            }
+            margin-right: 1em;
         }
     }
 }

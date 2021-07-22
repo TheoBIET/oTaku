@@ -23,6 +23,7 @@
     .Navigation__row__selection {
         display: flex;
         justify-content: space-around;
+        flex-wrap: wrap;
         border-radius: 10px;
 
         .Navigation__row__selection__item {
@@ -35,16 +36,18 @@
             animation-duration: 1s;
             filter: brightness(90%);
             position: relative;
+            margin: .2em;
 
             .Navigation__row__selection__item__background {
                 width: 100%;
                 height: 100%;
+                cursor: pointer;
             }
 
             .Navigation__row__selection__item__availability {
                 width: 2.2rem;
                 height: 2rem;
-                background-color: #fe1b00;
+                background-color: #93C;
                 position: absolute;
                 bottom: 3%;
                 right: 5%;
@@ -54,18 +57,22 @@
                 justify-content: center;
                 color: #fff;
                 font-size: 1.4rem;
-                padding-top: .2rem;
+                padding: .2rem 0 0 .1rem;
             }
 
-            .Navigation__row__selection__play {
+            .Navigation__row__selection__status {
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+            }
+
+            .--play {
                 color: #93c;
+                transition: .2s ease-in-out;
                 font-size: 3rem;
                 display: none;
-                transition: .2s ease-in-out;
+
 
                 &:hover {
                     cursor: pointer;
@@ -146,7 +153,7 @@
                 z-index: 1;
                 filter: brightness(100%);
 
-                .Navigation__row__selection__play {
+                .--play {
                     display: block;
                 }
 
@@ -161,12 +168,7 @@
                     top: 0;
                     animation: fadeInRight;
                     animation-duration: 1.5s;
-                    cursor: normal;
                     z-index: 100000;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
                 }
 
                 &:nth-child(1n + 8) {
@@ -181,12 +183,7 @@
                         top: 0;
                         animation: fadeInLeft;
                         animation-duration: 1.5s;
-                        cursor: normal;
                         z-index: 100000;
-    
-                        &:hover {
-                            cursor: pointer;
-                        }
                     }
                 }
             }
@@ -208,4 +205,9 @@
 
 .--grey {
     background-color: #ddd;
+}
+
+
+.loading {
+    filter: brightness(20%);
 }

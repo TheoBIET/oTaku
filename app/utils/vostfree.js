@@ -3,7 +3,7 @@ const { streamingWebsites } = require('../constants');
 
 module.exports = {
     getAnimeLinksList: async (name) => {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
 
         const probableSeasonRequested = name.split(' ').map(word => {
@@ -43,7 +43,7 @@ module.exports = {
                 url: link.href,
                 title,
                 language,
-                season:'Unknow',
+                season: 'Unknow',
                 plateform: 'VOSTFREE'
             }
         }));
@@ -55,7 +55,7 @@ module.exports = {
                 }
             }).join('');
 
-            if(probableSeasonFounded) {
+            if (probableSeasonFounded) {
                 link.season = parseInt(probableSeasonFounded, 10);
             }
 
@@ -69,21 +69,19 @@ module.exports = {
 
             link.probableSeason = probableSeasonFounded;
 
-            if(isNaN(probableSeasonFounded)) {
+            if (isNaN(probableSeasonFounded)) {
                 link.probableSeason = 1;
             }
 
-        }
-
-        if (probableSeasonRequested) {
-            const cleanLinks = links.filter(link => {    
-                return probableSeasonRequested === probableSeasonFounded
-            });
-            return cleanLinks;
+            if (probableSeasonRequested) {
+                const cleanLinks = links.filter(link => {
+                    return probableSeasonRequested === probableSeasonFounded
+                });
+                return cleanLinks;
+            }
         }
 
         await browser.close();
-
         return links;
     },
 
@@ -96,16 +94,24 @@ module.exports = {
 
         // 2 - Get all available links in the dropdown menu
         const episodeList = await page.$$eval('.jq-selectbox__dropdown ul li', episodes => episodes.map(episode => {
+
+            let link = document.getElementById('film_iframe').getAttribute('src');
+            console.log(link);
+
+            if (link.startsWith('//')) {
+                link = 'https:' + link;
+            }
+
             // 3 - Click on all available links and get his informations
             document.querySelector('.jq-selectbox__dropdown').click();
             episode.click();
             return {
                 title: episode.innerText,
                 // 4 - Get the streaming, he is the source of iframe with id "film_iframe"
-                link: document.getElementById('film_iframe').getAttribute('src')
+                link: link
             }
         }));
-        
+
 
         await browser.close();
 

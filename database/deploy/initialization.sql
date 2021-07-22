@@ -88,7 +88,7 @@ CREATE TABLE "anime_episode" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "episode_num" INT NOT NULL,
     "anime_id" INT NOT NULL REFERENCES "anime"("id"),
-    "streaming_link" TEXT NOT NULL UNIQUE,
+    "streaming_link" TEXT NOT NULL,
     "playlist_no" INTEGER NOT NULL DEFAULT 1,
     "probable_season" INTEGER NOT NULL DEFAULT 1,
     "website_id" INT NOT NULL REFERENCES "streaming_website"("id"),

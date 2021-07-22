@@ -34,40 +34,7 @@ module.exports = {
 
     getLinks: async (req, res, next) => {
         const malId = req.params.id;
-        const anime = await Anime.findOne({ where: { mal_id: malId }, include: ['episodes'] });
-
-        if (!anime) {
-            return next();
-        }
-
-        if (anime.episodes.length === 0) {
-            const animeLinks = await vostFree.getAnimeLinksList(anime.en_title);
-
-            let i = 1;
-            for (const link of animeLinks) {
-                const episodes = await vostFree.getStreamingList(link.url);
-    
-                for (const episode of episodes) {
-                    const episodeAlreadyExists = await Episode.findOne({ where: { streaming_link: episode.link } });
-                    if (episodeAlreadyExists) {
-                        return
-                    }
-                    const newEpisode = new Episode({
-                        episode_num: parseInt(episode.title.split(' ').filter(w => !isNaN(w)), 10) || 0,
-                        playlist_no: i,
-                        probable_season: episode.probableSeason,
-                        anime_id: anime.id,
-                        streaming_link: episode.link,
-                        language: link.language,
-                        website: link.plateform
-                    });
-                    newEpisode.save();
-                }
-                i++
-            }
-        }
-
-        const animeWithEpisodes = await Anime.findOne({
+        const anime = await Anime.findOne({
             where: { mal_id: malId },
             include: [
                 'studios',
@@ -81,8 +48,37 @@ module.exports = {
         }
         );
 
-        res.send({
-            animeWithEpisodes
-        });
+        if (!anime) {
+            return next();
+        }
+
+        if (anime.episodes.length === 0) {
+            const animeLinks = await vostFree.getAnimeLinksList(anime.en_title);
+
+            for (const link of animeLinks) {
+                const episodes = await vostFree.getStreamingList(link.url);
+
+                let i = 1;
+
+                for (const episode of episodes) {
+                    const episodeAlreadyExists = await Episode.findOne({ where: { streaming_link: episode.link, anime_id: anime.id } });
+                    if (!episodeAlreadyExists) {
+                        await Episode.create({
+                            episode_num: parseInt(episode.title.split(' ').filter(w => !isNaN(w)), 10) || 0,
+                            playlist_no: i,
+                            probable_season: episode.probableSeason,
+                            anime_id: anime.id,
+                            streaming_link: episode.link,
+                            language: link.language,
+                            website: link.plateform
+                        });
+                    }
+                }
+
+                i++
+            }
+        }
+        await anime.reload();
+        res.send(anime);
     }
 }
