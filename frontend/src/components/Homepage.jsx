@@ -16,12 +16,8 @@ class Homepage extends Component {
         this.callApi();
     }
 
-    componentDidUpdate() {
-        console.log(this.props.animeIsLoading);
-    }
-
     callApi = async () => {
-        const response = await fetch(`/api/base`);
+        const response = await fetch(`http://localhost:3000/api/base`);
         const results = await response.json();
         this.setState({
             most_viewed: results.most_watched,
@@ -46,7 +42,7 @@ class Homepage extends Component {
     };
 
     getCategoryList = (props) => {
-        return props.props.map((category, index) => index < 3 && <li>{category.label}</li>);
+        return props.props.map((category, index) => index < 3 && <li key={category.id}>{category.label}</li>);
     };
 
     // Map on the most_viewed array
@@ -60,7 +56,7 @@ class Homepage extends Component {
                     data-episodes={!!item.episodes.length}
                 >
                     {parseInt(this.props.animeID, 10) === item.mal_id &&
-                    this.props.animeIsLoading ? (
+                        this.props.animeIsLoading ? (
                         <>
                             <img
                                 src={item.medium_picture_url}
@@ -99,7 +95,7 @@ class Homepage extends Component {
                                 </div>
                             )}
                             <div className="Navigation__row__selection__status --play">
-                                <i class="fas fa-play"></i>
+                                <i className="fas fa-play"></i>
                             </div>
                         </>
                     )}
@@ -118,19 +114,19 @@ class Homepage extends Component {
                         <p>{item.synopsis}</p>
                         <div className="item_informations_icons">
                             <h5 className="item_informations_icons__rank">
-                                <i class="fas fa-trophy"></i>
+                                <i className="fas fa-trophy"></i>
                                 # {item.rank}
                             </h5>
                             <h5 className="item_informations_icons__mean">
-                                <i class="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
                                 {item.mean} / 10
                             </h5>
                             <h5 className="item_informations_icons__num-episodes">
-                                <i class="fas fa-video"></i>
+                                <i className="fas fa-video"></i>
                                 {item.num_episodes} ep.
                             </h5>
                             <h5 className="item_informations_icons__rating">
-                                <i class="fas fa-exclamation-circle"></i>
+                                <i className="fas fa-exclamation-circle"></i>
                                 {item.rating.label}
                             </h5>
                         </div>

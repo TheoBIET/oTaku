@@ -1,28 +1,29 @@
 {
-  "name": "otaku-api-v2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "log-beautify": "^1.2.0",
-    "pg": "^8.6.0",
-    "puppeteer": "^10.1.0",
-    "sequelize": "^6.6.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node",
-    "db:install": "sqitch deploy",
-    "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "otaku-api-v2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "doc": "docs"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "dotenv": "^10.0.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "log-beautify": "^1.2.0",
+        "pg": "^8.6.0",
+        "puppeteer": "^10.1.0",
+        "sequelize": "^6.6.5"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node .",
+        "dev": "concurrently \"npm start\" \"cd frontend; npm start\"",
+        "db:install": "sqitch deploy",
+        "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

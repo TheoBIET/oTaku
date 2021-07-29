@@ -20,7 +20,7 @@ class App extends Component {
         };
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
         console.log(this.state);
     }
 
@@ -54,7 +54,7 @@ class App extends Component {
     };
 
     getStreamingLink = async (animeID) => {
-        const response = await fetch(`/api/streaming/${animeID}`);
+        const response = await fetch(`http://localhost:3003/api/streaming/${animeID}`);
         const results = await response.json(animeID);
         this.setState({ animeID: animeID, animeIsLoading: false, animeInformations: results });
         console.log(results);

@@ -18,18 +18,19 @@
 
         h1 {
             font-size: 2em;
-            font-family: 'Otomanopee One', sans-serif;
+            font-family: "Otomanopee One", sans-serif;
+            line-height: 0.6;
 
-            h2 {
-                font-size: .5em;
-                color: #93C;
+            span {
+                font-size: 0.6em;
+                color: #93c;
             }
         }
     }
 
     .Navbar__navList {
         display: flex;
-    
+
         li {
             margin: 0 0.5em;
 
@@ -46,7 +47,7 @@
         input {
             border: none;
             font-size: 1.2em;
-            padding: .4em;
+            padding: 0.4em;
             border-radius: 10px;
             margin-right: 1em;
         }
