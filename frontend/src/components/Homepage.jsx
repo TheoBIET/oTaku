@@ -17,7 +17,7 @@ class Homepage extends Component {
     }
 
     callApi = async () => {
-        const response = await fetch(`http://localhost:3000/api/base`);
+        const response = await fetch(`/api/base`);
         const results = await response.json();
         this.setState({
             most_viewed: results.most_watched,
@@ -42,10 +42,9 @@ class Homepage extends Component {
     };
 
     getCategoryList = (props) => {
-        return props.props.map((category, index) => index < 3 && <li key={category.id}>{category.label}</li>);
+        return props.props.slice(0, 3).map(category => <li key={category.id}>{category.label}</li>);
     };
 
-    // Map on the most_viewed array
     getMoviesRow = (props) => {
         return props.props.map((item) => {
             return (

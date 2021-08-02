@@ -21,7 +21,8 @@
         "start": "node .",
         "dev": "concurrently \"npm start\" \"cd frontend; npm start\"",
         "db:install": "sqitch deploy",
-        "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js"
+        "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js",
+        "app:build": "rm -rf public; cd frontend; npm run build; mv ./build ../public"
     },
     "keywords": [],
     "author": "",

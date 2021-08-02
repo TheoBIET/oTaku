@@ -7,8 +7,7 @@ class Anime extends Component {
             animeID: this.props.animeID,
             isLoading: this.props.loadingState,
             animeInformations: this.props.animeInformations,
-            selectedEpisodeURL:
-                this.props.animeInformations.episodes[0].streaming_link,
+            selectedEpisodeURL: this.props.animeInformations.episodes[0].streaming_link,
         };
     }
 

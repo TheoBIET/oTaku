@@ -32,8 +32,6 @@ class AnimeLoader extends Component {
                         />
                     </path>
                 </svg>
-                {/* <h6>Chargement..</h6>
-                <h6>Cela peut prendre plusieurs minutes</h6> */}
             </div>
         );
     }
