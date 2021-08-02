@@ -1,0 +1,5 @@
+### Retrieve API information
+GET http://localhost:3003/api
+
+### Get the current most viewed animes
+GET http://localhost:3003/api/animes/trends/mostviewed

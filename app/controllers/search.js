@@ -1,35 +1,44 @@
-const { Anime, Episode } = require('../models');
+const { Op } = require("sequelize");
+const { Anime, Episode } = require("../models");
 
-const { myAnimeList } = require('../utils');
+const { myAnimeList } = require("../utils");
 
-const {
-    vostFree
-} = require('../utils');
-
+const { vostFree } = require("../utils");
 
 module.exports = {
-
     search: async (req, res, next) => {
         const animeName = req.body.name;
 
         if (!animeName) {
-            return next();
+            return res.status(400).send({
+                message: "You must provide a name",
+                data: [],
+            });
         }
 
-        myAnimeList.search(animeName, (err, results) => {
-            if (err) {
-                return next();
-            }
-
+        try {
             res.send({
-                status: 'success',
-                message: 'POST on /api/search/streaming/:mal_id for get a streaming Link',
-                warning: "If you don't get many results, please check the spelling and try again, when a manga has never been searched it can take a few seconds to receive its information in the database, a new query can make you happy!",
-                rows: results.length,
-                data: results
+                message: "Success",
+                data: {
+                    myAnimeList: await myAnimeList.search(animeName),
+                    database: await Anime.findAll({
+                        where: {
+                            [Op.or]: [
+                                { en_title: { [Op.iLike]: `%${animeName}%` } },
+                                { jp_title: { [Op.iLike]: `%${animeName}%` } },
+                            ],
+                        },
+                        limit: 10,
+                    }),
+                },
             });
-
-        })
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                message: "Error",
+                data: [],
+            });
+        }
     },
 
     getLinks: async (req, res, next) => {
@@ -37,16 +46,15 @@ module.exports = {
         const anime = await Anime.findOne({
             where: { mal_id: malId },
             include: [
-                'studios',
-                'rating',
-                'source',
-                'nsfw_color',
-                'media_type',
-                'categories',
-                'episodes'
-            ]
-        }
-        );
+                "studios",
+                "rating",
+                "source",
+                "nsfw_color",
+                "media_type",
+                "categories",
+                "episodes",
+            ],
+        });
 
         if (!anime) {
             return next();
@@ -61,24 +69,37 @@ module.exports = {
                 let i = 1;
 
                 for (const episode of episodes) {
-                    const episodeAlreadyExists = await Episode.findOne({ where: { streaming_link: episode.link, anime_id: anime.id } });
+                    const episodeAlreadyExists = await Episode.findOne({
+                        where: {
+                            streaming_link: episode.link,
+                            anime_id: anime.id,
+                        },
+                    });
                     if (!episodeAlreadyExists) {
                         await Episode.create({
-                            episode_num: parseInt(episode.title.split(' ').filter(w => !isNaN(w)), 10) || 0,
+                            episode_num:
+                                parseInt(
+                                    episode.title
+                                        .split(" ")
+                                        .filter((w) => !isNaN(w)),
+                                    10
+                                ) || 0,
                             playlist_no: i,
                             probable_season: episode.probableSeason,
                             anime_id: anime.id,
                             streaming_link: episode.link,
                             language: link.language,
-                            website: link.plateform
+                            website: link.plateform,
                         });
                     }
                 }
 
-                i++
+                i++;
             }
         }
+
         await anime.reload();
         res.send(anime);
-    }
-}
+        
+    },
+};

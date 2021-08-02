@@ -3,7 +3,7 @@ const { streamingWebsites } = require("../constants");
 
 module.exports = {
     getAnimeLinksList: async (name) => {
-        const browser = await puppeteer.launch({ headless: false });
+        const browser = await puppeteer.launch(/* { headless: false } */);
         const page = await browser.newPage();
 
         const probableSeasonRequested = name
