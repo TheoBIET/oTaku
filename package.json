@@ -8,15 +8,19 @@
     },
     "dependencies": {
         "axios": "^0.21.1",
+        "concurrently": "^6.2.0",
         "dotenv": "^10.0.0",
         "ejs": "^3.1.6",
+        "electron": "^13.1.7",
+        "electron-builder": "^22.11.7",
+        "electron-is-dev": "^2.0.0",
         "express": "^4.17.1",
         "log-beautify": "^1.2.0",
         "pg": "^8.6.0",
         "puppeteer": "^10.1.0",
-        "sequelize": "^6.6.5"
+        "sequelize": "^6.6.5",
+        "wait-on": "^6.0.0"
     },
-    "devDependencies": {},
     "scripts": {
         "start": "node .",
         "dev": "concurrently \"npm start\" \"cd frontend; npm start\"",
