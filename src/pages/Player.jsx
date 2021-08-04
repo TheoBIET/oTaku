@@ -8,7 +8,7 @@ function Anime({ }) {
 
     useEffect(function () {
         async function fetchInformations() {
-            const url = `http://localhost:3003/api/animes/streaming`;
+            const url = `/api/animes/streaming`;
             const data = {
                 plateform: "vostfree",
                 url: 'https://vostfree.tv/265-one-piece-985-vostfr-anime.html',
@@ -33,7 +33,6 @@ function Anime({ }) {
             {links.length > 0 ? links.map((link) => (
                 <div>
                     <h1>{link.title}</h1>
-                    <iframe src={link.link} frameborder="0"></iframe>
                 </div>
             )) : <h1>Chargement</h1>}
         </div >

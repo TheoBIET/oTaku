@@ -9,7 +9,7 @@ function Anime({ }) {
 
     useEffect(function () {
         async function fetchInformations() {
-            const url = `http://localhost:3003/api/animes/informations`;
+            const url = `/api/animes/informations`;
             const data = {
                 url: 'https://nautiljon.com/animes/one+piece.html',
             };
@@ -26,7 +26,7 @@ function Anime({ }) {
         }
 
         async function fetchWebsites() {
-            const url = `http://localhost:3003/api/animes/websites`;
+            const url = `/api/animes/websites`;
             const data = {
                 name: "One Piece",
             };

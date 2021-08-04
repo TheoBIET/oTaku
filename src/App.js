@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import "./scss/styles.scss";
 import SideMenu from "./components/SideMenu";
 import Search from "./pages/Search";
 import Home from "./pages/Home";

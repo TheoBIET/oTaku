@@ -8,7 +8,7 @@ function Search() {
 
     async function handleSearch(search) {
         if (search.length > 0) {
-            const url = `http://localhost:3003/api/animes/search`;
+            const url = `/api/animes/search`;
             const data = {
                 name: search,
             };
