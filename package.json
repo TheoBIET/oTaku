@@ -1,34 +1,44 @@
 {
-    "name": "otaku-api-v2",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "directories": {
-        "doc": "docs"
-    },
+    "name": "baaka",
+    "version": "0.1.0",
+    "private": true,
     "dependencies": {
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
         "axios": "^0.21.1",
-        "concurrently": "^6.2.0",
         "dotenv": "^10.0.0",
-        "ejs": "^3.1.6",
-        "electron": "^13.1.7",
-        "electron-builder": "^22.11.7",
-        "electron-is-dev": "^2.0.0",
-        "express": "^4.17.1",
-        "log-beautify": "^1.2.0",
-        "pg": "^8.6.0",
-        "puppeteer": "^10.1.0",
-        "sequelize": "^6.6.5",
-        "wait-on": "^6.0.0"
+        "node-sass": "^6.0.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-icons": "^4.2.0",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "4.0.3",
+        "web-vitals": "^1.1.2"
     },
     "scripts": {
-        "start": "node .",
-        "dev": "concurrently \"npm start\" \"cd frontend; npm start\"",
-        "db:install": "sqitch deploy",
-        "db:reset": "sqitch revert -y; sqitch deploy; node ./database/seeding.js",
-        "app:build": "rm -rf public; cd frontend; npm run build; mv ./build ../public"
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "proxy": "http://localhost:4000"
 }
