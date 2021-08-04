@@ -1,0 +1,36 @@
+#Search {
+    padding: 2em;
+
+    #Search-Form {
+        display: flex;
+        justify-content: center;
+
+        input {
+            background-color: $white;
+            padding: 0.1em 0.2em;
+            font-size: 2em;
+            border: none;
+            border-bottom: 2px solid $purple;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .icon {
+            font-size: 2.3em;
+            color: $purple;
+            cursor: pointer;
+        }
+    }
+
+    #Search__Results {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        padding: 1em;
+    }
+}

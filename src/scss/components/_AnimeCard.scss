@@ -1,0 +1,40 @@
+.AnimeCard {
+    width: 13rem;
+    height: 18rem;
+    background-color: #fff;
+    transition: 0.2s ease-in-out;
+    animation: fadeInRight 0.2s ease-in-out;
+    animation-duration: 1s;
+    filter: brightness(90%);
+    position: relative;
+    margin: 0.2em;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+    &:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        transform: translateY(-2px) scale(1.01);
+    }
+
+    .AnimeCard__Picture {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .AnimeCard__Informations {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 200%;
+        height: 100%;
+        background-color: red;
+    }
+}
