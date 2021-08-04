@@ -8,7 +8,7 @@ import Player from "./pages/Player";
 
 function App() {
     return (
-        <div>
+        <div id="App">
             <SideMenu />
             <Route exact path="/" component={Home} />
             <Route path="/search" component={Search} />

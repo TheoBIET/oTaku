@@ -1,0 +1,22 @@
+#SideMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    padding: 1rem;
+    max-height: 100%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .icon {
+        color: $purple;
+        font-size: 2rem;
+        margin: 1rem 0;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            color: $purple-hover;
+            transform: scale(1.1);
+        }
+    }
+}
