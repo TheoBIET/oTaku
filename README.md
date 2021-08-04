@@ -1,9 +1,11 @@
 <img src="./docs/images/Luffy.jpg" align="right"
      alt="Luffy ONE PIECE" width="178" height="178">
 
-# 🇯🇵 oTaku | Anime Search Engine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# 🇯🇵 Baaka | Anime Search Engine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-o'taku is an API that allows you to find workings streaming links for your favorite anime. This project aims to simplify the tracking of a particular anime. Indeed, when you search for an anime, you will receive a lot of information about it (all coming from a database which is updated daily and fed by the MyAnimeList API; I made this choice to decrease the response time) but also, a list of streaming links available in several languages. No more evenings looking for a working streaming link before binge-watching your favorite series!
+**Following numerous requests and the enthusiasm that the evocation that this project has generated. I am currently reviewing the entire application so that everyone can use it easily, even without knowledge! .....**
+
+Baaka is an API that allows you to find workings streaming links for your favorite anime. This project aims to simplify the tracking of a particular anime. Indeed, when you search for an anime, you will receive a lot of information about it (all coming from a database which is updated daily and fed by the MyAnimeList API; I made this choice to decrease the response time) but also, a list of streaming links available in several languages. No more evenings looking for a working streaming link before binge-watching your favorite series!
 
 -   This project is currently **under development.** 🏗️
 -   React application on the frontend. I'm not a designer BUT I did apply myself! After all, nothing is better than watching your favorite anome on an eye-pleasing platform 🐻
