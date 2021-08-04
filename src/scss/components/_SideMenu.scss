@@ -1,0 +1,27 @@
+#SideMenu {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    padding: 1rem;
+    height: calc(100vh - 2rem);
+    width: 2%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $side_menu_box_shadow;
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    .icon {
+        color: $purple;
+        font-size: 2rem;
+        margin: 1rem 0;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            color: $purple-hover;
+            transform: scale(1.1);
+        }
+    }
+}
