@@ -3,7 +3,7 @@ import { FiLogOut, FiUser, FiHome, FiSearch, FiSettings, FiBookmark } from 'reac
 
 function SideMenu() {
     return (
-        <div id="SideMenu">
+        <nav id="SideMenu">
             <NavLink to="/">
                 <FiHome className="icon" />
             </NavLink>
@@ -22,7 +22,7 @@ function SideMenu() {
             <NavLink to="/logout">
                 <FiLogOut className="icon" />
             </NavLink>
-        </div>
+        </nav>
     )
 }
 

@@ -1,0 +1,21 @@
+.AnimeCard {
+    width: 10rem;
+    height: 15rem;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.2s ease-in-out;
+    animation: fadeInLeft;
+    animation-duration: 1s;
+    filter: brightness(90%);
+    position: relative;
+    margin: 0.2em;
+
+    .AnimeCard__Picture {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}

@@ -34,20 +34,17 @@ function Search() {
             </button>
             {results.map((item) => {
                 return (
-                    <>
-                        <hr></hr>
-                        <div key={item.id}>
-                            <h3>{item.name}</h3>
-                            <img src={item.imageUrl} alt="" width='100px' />
-                            <NavLink to={`/animes/${item.name}?url=${item.url}`}>
-                                <button>Lire</button>
-                            </NavLink>
-                        </div>
-                        <hr></hr>
-                    </>
+                    // TODO: Export this part to an AnimeLink Component
+                    <div key={item.id} className="AnimeCard">
+                        <div className="AnimeCard__Picture" style={{ background: `url(${item.imageUrl})no-repeat center center/cover` }} />
+                        <h3>{item.name}</h3>
+                        <NavLink to={`/animes/${item.name}?url=${item.url}`}>
+                            <button>Lire</button>
+                        </NavLink>
+                    </div>
                 );
             })}
-        </div>
+        </div >
     )
 }
 
