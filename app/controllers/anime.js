@@ -8,7 +8,8 @@ const MAL_BEARER = process.env.MAL_BEARER;
 module.exports = {
     async search(req, res) {
         try {
-            const results = await mal.search("One Piece", MAL_BEARER);
+            const { name } = req.body;
+            const results = await mal.search(name, MAL_BEARER);
             return res.json(
                 results.map((anime) => malServices.format(anime.node))
             );

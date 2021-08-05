@@ -5,14 +5,13 @@ const mal = {
     search: async (query, token) => {
         try {
             const results = await axios.get(
-                `${MAL.apiURL}/anime?q='${query}&limit=100&${MAL.apiParams}`,
+                `https://api.myanimelist.net/v2/anime?q='${query}'&limit=70&${MAL.apiParams}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 }
             );
-
             return results.data.data;
         } catch (error) {
             console.error(error);

@@ -3,9 +3,9 @@ module.exports = {
         return {
             mal_id: anime.id,
             en_title: anime.title,
-            jp_title: anime.alternative_titles?.ja ?? "Unknown",
-            medium_picture_url: anime.main_picture.medium,
-            large_picture_url: anime.main_picture.large,
+            jp_title: anime.alternative_titles?.ja,
+            medium_picture_url: anime.main_picture?.medium,
+            large_picture_url: anime.main_picture?.large,
             start_date: anime.start_date,
             end_date: anime.start_date,
             num_episodes: anime.num_episodes,
