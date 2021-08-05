@@ -22,19 +22,57 @@ module.exports = {
 
         return res.json(user);
     },
-    login(req, res) {
-        res.json("OK");
+    async login(req, res) {
+        const { login, password } = req.body;
+
+        if (!login || !password) {
+            return res.status(400).json({
+                message: "Login and password are required",
+            });
+        }
+
+        const user = await User.findOne({
+            where: {
+                [Op.or]: {
+                    username: {
+                        [Op.iLike]: login,
+                    },
+                    email: {
+                        [Op.iLike]: login,
+                    },
+                },
+            },
+        });
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found",
+            });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(401).json({
+                message: "Incorrect password",
+                login,
+            });
+        }
+
+        return res.json(user);
     },
     async createAccount(req, res) {
         try {
-            if (!req.body.password || !req.body.username || !req.body.email) {
+            const { username, password, email } = req.body;
+
+            if (!password || !username || !email) {
                 return res.status(400).json({ message: "Check credentials!" });
             }
 
             const usernameIsTaken = await User.findOne({
                 where: {
                     username: {
-                        [Op.iLike]: req.body.username,
+                        [Op.iLike]: username,
                     },
                 },
             });
@@ -46,7 +84,7 @@ module.exports = {
             const emailIsTaken = await User.findOne({
                 where: {
                     email: {
-                        [Op.iLike]: req.body.email,
+                        [Op.iLike]: email,
                     },
                 },
             });
@@ -56,9 +94,9 @@ module.exports = {
             }
 
             const user = new User({
-                username: req.body.username,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 8),
+                username,
+                email,
+                password: bcrypt.hashSync(password, 8),
             });
 
             await user.save();
