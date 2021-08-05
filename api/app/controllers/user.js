@@ -2,64 +2,79 @@ const { User } = require("../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
 
+// TODO : JSDoc
 module.exports = {
     async getProfile(req, res) {
-        const { username } = req.params;
+        try {
+            const { username } = req.params;
 
-        const user = await User.findOne({
-            where: {
-                username: {
-                    [Op.iLike]: username,
+            const user = await User.findOne({
+                where: {
+                    username: {
+                        [Op.iLike]: username,
+                    },
                 },
-            },
-        });
+            });
 
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found",
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            }
+
+            return res.json(user);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                message: "Internal servor error. Please retry later",
             });
         }
-
-        return res.json(user);
     },
     async login(req, res) {
-        const { login, password } = req.body;
+        try {
+            const { login, password } = req.body;
 
-        if (!login || !password) {
-            return res.status(400).json({
-                message: "Login and password are required",
-            });
-        }
+            if (!login || !password) {
+                return res.status(400).json({
+                    message: "Login and password are required",
+                });
+            }
 
-        const user = await User.findOne({
-            where: {
-                [Op.or]: {
-                    username: {
-                        [Op.iLike]: login,
-                    },
-                    email: {
-                        [Op.iLike]: login,
+            const user = await User.findOne({
+                where: {
+                    [Op.or]: {
+                        username: {
+                            [Op.iLike]: login,
+                        },
+                        email: {
+                            [Op.iLike]: login,
+                        },
                     },
                 },
-            },
-        });
+            });
 
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found",
+            if (!user) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            }
+
+            const isMatch = await bcrypt.compare(password, user.password);
+
+            if (!isMatch) {
+                return res.status(401).json({
+                    message: "Incorrect password",
+                    login,
+                });
+            }
+
+            return res.json(user);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                message: "Internal server error. Please retry later",
             });
         }
-
-        const isMatch = await bcrypt.compare(password, user.password);
-
-        if (!isMatch) {
-            return res.status(401).json({
-                message: "Incorrect password",
-                login,
-            });
-        }
-
-        return res.json(user);
     },
     async createAccount(req, res) {
         try {
@@ -104,7 +119,9 @@ module.exports = {
             return res.status(200).json({ message: "Account created!", user });
         } catch (error) {
             console.error(error);
-            return res.status(500).json({ message: "Something went wrong!" });
+            return res.status(500).send({
+                message: "Internal server error. Please retry later",
+            });
         }
     },
     updateInformations(req, res) {
