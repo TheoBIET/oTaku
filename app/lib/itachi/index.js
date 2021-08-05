@@ -1,4 +1,4 @@
-const { vostfree } = require("./anime");
+const vostfree = require("./vostfree");
 const websites = [vostfree];
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
      */
     getStreaming: async (plateform, url) => {
         const website = websites.find((el) => el.plateform === plateform);
-        if (!website) return console.error("Invalid plateform");
+        if (!website) return { message: "Invalid plateform" };
         const results = await website.getStreamingLinks(url);
         return results;
     },
