@@ -7,7 +7,6 @@ const MAL_BEARER = process.env.MAL_BEARER;
 // TODO : JSDoc
 module.exports = {
     async search(req, res) {
-        // TODO : Search with My Anime List API
         try {
             const results = await mal.search("One Piece", MAL_BEARER);
             return res.json(
@@ -22,7 +21,16 @@ module.exports = {
     },
 
     async informations(req, res) {
-        // TODO : Get informations from MyAnimeList
+        try {
+            const { animeID } = req.params;
+            const results = await mal.getDetails(animeID, MAL_BEARER);
+            return res.json(malServices.format(results));
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({
+                message: "Internal servor error. Please retry later",
+            });
+        }
     },
 
     async websites(req, res) {

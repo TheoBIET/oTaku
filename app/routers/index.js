@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
 
 router
     .post("/animes/search", animeController.search)
-    .post("/animes/informations", animeController.informations)
+    .get("/animes/:animeID(\\d+)/informations", animeController.informations)
     .post("/animes/websites", animeController.websites)
     .post("/animes/streaming", animeController.streaming)
 
