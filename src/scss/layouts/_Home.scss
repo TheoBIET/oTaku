@@ -1,0 +1,24 @@
+#Home {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #Home__header {
+        font-size: 1.5em;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        & > * {
+            margin: 1rem;
+        }
+
+        #Home__header__title {
+            font-size: 5em;
+            font-family: $secondary_font;
+        }
+    }
+}
