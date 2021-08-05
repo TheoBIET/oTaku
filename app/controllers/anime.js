@@ -1,5 +1,6 @@
 const itachi = require("../lib");
 
+// TODO : JSDoc
 module.exports = {
     async search(req, res) {
         // TODO : Search with My Anime List API
@@ -23,6 +24,7 @@ module.exports = {
 
             res.send(results);
         } catch (error) {
+            console.error(error);
             res.status(500).send({
                 message: "Internal servor error. Please retry later",
             });
@@ -43,6 +45,7 @@ module.exports = {
 
             res.send(results);
         } catch (error) {
+            console.error(error);
             res.status(500).send({
                 message: "Internal servor error. Please retry later",
             });
