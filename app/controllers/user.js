@@ -1,26 +1,25 @@
 module.exports = {
-    
-    create : async (req,res) =>{
+    create: async (req, res) => {
         try {
-            console.log()
+            console.log();
         } catch (error) {
-            res.status(500)
+            res.status(500);
         }
     },
 
-    update : async (req,res) =>{
+    update: async (req, res) => {
         try {
-            console.log()
+            console.log();
         } catch (error) {
-            res.status(500)
+            res.status(500);
         }
     },
 
-    deleteUser : async (req,res) =>{
+    deleteUser: async (req, res) => {
         try {
-            console.log()
+            console.log();
         } catch (error) {
-            res.status(500)
+            res.status(500);
         }
     },
-}
+};
