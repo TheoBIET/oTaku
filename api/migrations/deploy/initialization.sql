@@ -16,8 +16,9 @@ CREATE TABLE "user" (
     "last_name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "my_anime_list_username" TEXT,
-    "email" TEXT NOT NULL,
+    "email" TEXT NOT NULL UNIQUE,
     "password" TEXT NOT NULL,
+    "avatar_url" TEXT,
     "role_id" INT NOT NULL REFERENCES "role" ("id") DEFAULT 1,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
