@@ -2,6 +2,7 @@
 
 BEGIN;
 
--- XXX Add verifications here.
+SELECT * FROM "user" WHERE false;
+SELECT * FROM "role" WHERE false;
 
 ROLLBACK;
