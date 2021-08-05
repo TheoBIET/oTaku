@@ -1,26 +1,32 @@
 {
-  "name": "baaka",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheoBIET/otaku-API.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheoBIET/otaku-API/issues"
-  },
-  "homepage": "https://github.com/TheoBIET/otaku-API#readme",
-  "dependencies": {
-    "baaka-itachi": "^1.0.3",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1"
-  }
+    "name": "baaka",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node .",
+        "dev": "nodemon",
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TheoBIET/otaku-API.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TheoBIET/otaku-API/issues"
+    },
+    "homepage": "https://github.com/TheoBIET/otaku-API#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "puppeteer": "^10.1.0"
+    },
+    "devDependencies": {
+        "jest": "^27.0.6"
+    }
 }
