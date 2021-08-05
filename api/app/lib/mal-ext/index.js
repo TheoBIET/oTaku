@@ -28,8 +28,23 @@ const mal = {
                     },
                 }
             );
-            console.log(results);
             return results.data;
+        } catch (error) {
+            console.error(error);
+        }
+    },
+
+    getRanking: async (token) => {
+        try {
+            const results = await axios.get(
+                `https://api.myanimelist.net/v2/anime/ranking?${MAL.apiParams}&limit=100`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            return results.data.data;
         } catch (error) {
             console.error(error);
         }
