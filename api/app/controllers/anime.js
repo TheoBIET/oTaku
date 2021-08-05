@@ -34,6 +34,21 @@ module.exports = {
         }
     },
 
+    async getRanking(_, res) {
+        try {
+            const results = await mal.getRanking(MAL_BEARER);
+            console.log(results);
+            return res.json(
+                results.map((anime) => malServices.format(anime.node))
+            );
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({
+                message: "Internal servor error. Please retry later",
+            });
+        }
+    },
+
     async websites(req, res) {
         try {
             const { name } = req.body;
