@@ -1,15 +1,15 @@
 const itachi = require("../lib");
 
 module.exports = {
-    search: async (req, res) => {
+    async search(req, res) {
         // TODO : Search with My Anime List API
     },
 
-    informations: async (req, res) => {
+    async informations(req, res) {
         // TODO : Get informations from MyAnimeList
     },
 
-    websites: async (req, res) => {
+    async websites(req, res) {
         try {
             const { name } = req.body;
 
@@ -29,7 +29,7 @@ module.exports = {
         }
     },
 
-    streaming: async (req, res) => {
+    async streaming(req, res) {
         try {
             const { plateform, url } = req.body;
 

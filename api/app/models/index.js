@@ -17,4 +17,5 @@ User.belongsTo(Role, {
 
 module.exports = {
     Role,
+    User,
 };

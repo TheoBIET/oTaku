@@ -1,4 +1,4 @@
-const sequelize = require("./../database");
+const sequelize = require("./../client");
 const { DataTypes, Model } = require("sequelize");
 
 class User extends Model {}
@@ -10,21 +10,6 @@ User.init(
             allowNull: false,
             unique: true,
         },
-        first_name: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        last_name: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        description: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        my_anime_list_username: {
-            type: DataTypes.TEXT,
-        },
         email: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -33,6 +18,18 @@ User.init(
         password: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+        first_name: {
+            type: DataTypes.TEXT,
+        },
+        last_name: {
+            type: DataTypes.TEXT,
+        },
+        description: {
+            type: DataTypes.TEXT,
+        },
+        my_anime_list_username: {
+            type: DataTypes.TEXT,
         },
         avatar_url: {
             type: DataTypes.TEXT,
