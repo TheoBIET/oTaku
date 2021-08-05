@@ -40,7 +40,7 @@ function Search() {
                     return (
                         // TODO: Export this part to an AnimeLink Component
                         <div key={item.id} className="AnimeCard">
-                            <div className="AnimeCard__Picture" style={{ background: `url(${item.imageUrl})no-repeat center center/cover` }} />
+                            <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
                             <div className="AnimeCard__Informations">
                                 <div className="Informations__Title">{item.name}</div>
                             </div>

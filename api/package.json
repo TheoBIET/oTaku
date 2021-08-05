@@ -20,11 +20,16 @@
     },
     "homepage": "https://github.com/TheoBIET/otaku-API#readme",
     "dependencies": {
+        "bcrypt": "^5.0.1",
         "cheerio": "^1.0.0-rc.3",
         "cors": "^2.8.5",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",
-        "puppeteer": "^10.1.0"
+        "express-session": "^1.17.2",
+        "log-beautify": "^1.2.0",
+        "pg": "^8.7.1",
+        "puppeteer": "^10.1.0",
+        "sequelize": "^6.6.5"
     },
     "devDependencies": {
         "jest": "^27.0.6"
