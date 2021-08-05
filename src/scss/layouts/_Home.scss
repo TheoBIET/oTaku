@@ -21,4 +21,10 @@
             font-family: $secondary_font;
         }
     }
+
+    #Home__animes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }

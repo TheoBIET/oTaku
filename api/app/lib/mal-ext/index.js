@@ -37,7 +37,7 @@ const mal = {
     getRanking: async (token) => {
         try {
             const results = await axios.get(
-                `https://api.myanimelist.net/v2/anime/ranking?${MAL.apiParams}`,
+                `https://api.myanimelist.net/v2/anime/ranking?${MAL.apiParams}&limit=100`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

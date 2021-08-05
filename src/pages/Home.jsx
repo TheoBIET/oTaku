@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiSearch } from 'react-icons/fi'
 import { NavLink } from "react-router-dom";
 
@@ -7,10 +7,14 @@ function Home() {
     const [animes, setAnimes] = useState([]);
 
     async function loadAnimes() {
-        const response = await fetch("/api/animes");
+        const response = await fetch("/api/animes/ranking");
         const animes = await response.json();
         setAnimes(animes);
     }
+
+    useEffect(() => {
+        loadAnimes();
+    }, []);
 
     return (
         <div id="Home">
