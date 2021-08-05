@@ -1,0 +1,423 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2021-08-05T19:15:03.956Z",
+    "__export_source": "insomnia.desktop.app:v2021.3.0",
+    "resources": [
+        {
+            "_id": "req_5ea730fe37c0490bafce4d9a0ea0d0fe",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628190807447,
+            "created": 1628172957555,
+            "url": "http://localhost:4000/api/user/otaku",
+            "name": "Get Informations",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1628172802355,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "parentId": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "modified": 1628172796395,
+            "created": 1628172796395,
+            "name": "User",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1628172796395,
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "parentId": null,
+            "modified": 1628019499158,
+            "created": 1628019499158,
+            "name": "Baaka",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_d87188a4792745c1a46d817284afa39c",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628190814433,
+            "created": 1628172802305,
+            "url": "http://localhost:4000/api/user/login",
+            "name": "Login",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"login\": \"otaku@otaku\",\n\t\"password\": \"otaku\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_f40b5e95ed6b428fb09737b8ddf1ac21"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628172802305,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_02732278f16345df9ea6f33472981a9d",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628190825528,
+            "created": 1628172815798,
+            "url": "http://localhost:4000/api/user/signup",
+            "name": "Signup",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"username\": \"otaku\",\n\t\"email\": \"otaku@otaku\",\n\t\"password\": \"otaku\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_f8365e5f6b23465596ae93d65e6fbca5"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628172802255,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_179a949430f24d8299ab76d0fef853ee",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628177124949,
+            "created": 1628172856733,
+            "url": "http://localhost:4000/api/user/delete",
+            "name": "Delete Account",
+            "description": "",
+            "method": "DELETE",
+            "body": { "mimeType": "application/json", "text": "" },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_3a5a573c82d344b6acafab0af97dabce"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628172802180,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_93fcc4a110a045c288fadbfcb74d5e01",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628173681627,
+            "created": 1628172873479,
+            "url": "http://localhost:4000/api/user/update/password",
+            "name": "Update Password",
+            "description": "",
+            "method": "PUT",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1628134478733.25,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f4b3daf879074f3080ace8c54d28e287",
+            "parentId": "fld_a5b7b0b32d5c4e3c80e7b5fc3fe5d3ec",
+            "modified": 1628173696973,
+            "created": 1628172867228,
+            "url": "http://localhost:4000/api/user/update",
+            "name": "Update Informations",
+            "description": "",
+            "method": "PUT",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1628096155311.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_67d5ecaaf35b409ebc25de4985f7875e",
+            "parentId": "fld_35c130a80351434e8e8330c696e0fd16",
+            "modified": 1628183783207,
+            "created": 1628019517125,
+            "url": "http://localhost:4000/api/animes/search",
+            "name": "Search",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"Shingeki No Kyojin\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_f3f21d6c341346c885d95b827131cbfc"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628019508468,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_35c130a80351434e8e8330c696e0fd16",
+            "parentId": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "modified": 1628019508493,
+            "created": 1628019508493,
+            "name": "Animes",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1628019508493,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_af338ae37348459f9400cc2cf7124bb6",
+            "parentId": "fld_35c130a80351434e8e8330c696e0fd16",
+            "modified": 1628183601942,
+            "created": 1628020076817,
+            "url": "http://localhost:4000/api/animes/27/informations",
+            "name": "Informations",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"id\": 27\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_cd0f3c73b422477e83951a280a6d1e2b"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628019508418,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_fdff2a9d2ed248538f6a58fe79918719",
+            "parentId": "fld_35c130a80351434e8e8330c696e0fd16",
+            "modified": 1628190318818,
+            "created": 1628190170442,
+            "url": "http://localhost:4000/api/animes/ranking",
+            "name": "Ranking",
+            "description": "",
+            "method": "GET",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"id\": 27\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_cd0f3c73b422477e83951a280a6d1e2b"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628019508393,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_6dd0830fdbfb427f83cbc68f0f6c548f",
+            "parentId": "fld_35c130a80351434e8e8330c696e0fd16",
+            "modified": 1628181241107,
+            "created": 1628020217197,
+            "url": "http://localhost:4000/api/animes/websites",
+            "name": "Websites List",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"One Piece\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_96e7f6f5d24c47f0a34abcf19643410c"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1628019508368,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_68b2e6562c9d4894af4022a0990f1baa",
+            "parentId": "fld_35c130a80351434e8e8330c696e0fd16",
+            "modified": 1628181442484,
+            "created": 1628020374896,
+            "url": "http://localhost:4000/api/animes/streaming",
+            "name": "Streaming List",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"plateform\": \"vostfree\",\n\t\"url\": \"https://vostfree.tv/265-one-piece-985-vostfr-anime.html\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_96e7f6f5d24c47f0a34abcf19643410c"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1627998489475,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_8f90af87161f9460da6efe8f517e3496d3656e38",
+            "parentId": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "modified": 1628019499327,
+            "created": 1628019499327,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1628019499327,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_8f90af87161f9460da6efe8f517e3496d3656e38",
+            "parentId": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "modified": 1628020151595,
+            "created": 1628019499335,
+            "name": "Default Jar",
+            "cookies": [
+                {
+                    "key": "PHPSESSID",
+                    "value": "pd0o2k1l55skmohnmka5lss877",
+                    "domain": "www.nautiljon.com",
+                    "path": "/",
+                    "secure": true,
+                    "httpOnly": true,
+                    "hostOnly": true,
+                    "creation": "2021-08-03T19:48:25.680Z",
+                    "lastAccessed": "2021-08-03T19:48:25.680Z",
+                    "id": "580287298218719"
+                },
+                {
+                    "key": "sid",
+                    "value": "1",
+                    "expires": "2021-08-03T23:59:11.000Z",
+                    "maxAge": 15000,
+                    "domain": "www.nautiljon.com",
+                    "path": "/",
+                    "secure": true,
+                    "httpOnly": true,
+                    "hostOnly": false,
+                    "creation": "2021-08-03T19:48:25.680Z",
+                    "lastAccessed": "2021-08-03T19:49:11.594Z",
+                    "id": "175504911098606"
+                }
+            ],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_607534a85e4240679142797884737927",
+            "parentId": "wrk_c0678171b3534bd09e8309c4afa1d67e",
+            "modified": 1628019499161,
+            "created": 1628019499161,
+            "fileName": "oTaku",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        }
+    ]
+}

@@ -37,7 +37,6 @@ module.exports = {
     async getRanking(_, res) {
         try {
             const results = await mal.getRanking(MAL_BEARER);
-            console.log(results);
             return res.json(
                 results.map((anime) => malServices.format(anime.node))
             );
