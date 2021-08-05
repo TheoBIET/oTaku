@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node .",
+        "dev": "nodemon",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -18,13 +20,13 @@
     },
     "homepage": "https://github.com/TheoBIET/otaku-API#readme",
     "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
         "cors": "^2.8.5",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",
-        "cheerio": "^1.0.0-rc.3",
-        "puppeteer": "^10.1.0",
-        "remove-accents": "^0.4.2",
-        "request": "^2.88.2",
-        "request-promise": "^4.2.6"
+        "puppeteer": "^10.1.0"
+    },
+    "devDependencies": {
+        "jest": "^27.0.6"
     }
 }

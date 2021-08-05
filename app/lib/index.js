@@ -1,4 +1,4 @@
-const { vostfree } = require("./lib/anime");
+const { vostfree } = require("./anime");
 const websites = [vostfree];
 
 module.exports = {

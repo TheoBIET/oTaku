@@ -1,4 +1,4 @@
-const { vostfree } = require("../lib/anime");
+const { vostfree } = require("../../lib/anime");
 
 test('Get search results for "L\'attaque des Titans" on vostfree', async () => {
     const results = await vostfree.getAnimeLinks("L'attaque des Titans");
