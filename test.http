@@ -1,0 +1,37 @@
+### Make data search for an anime / manga by name
+POST http://localhost:4000/api/animes/search
+Content-type: application/json
+
+{
+	"name": "One Piece"
+}
+
+### Get informations for an anime / manga by his MAL id
+GET http://localhost:4000/api/animes/27
+
+
+### Make streaming websites search for an anime / manga by name
+POST http://localhost:4000/api/animes/websites
+Content-type: application/json
+
+{
+	"name": "One Piece"
+}
+
+### Make streaming links search for an anime / manga by anime's plateform URL
+POST http://localhost:4000/api/animes/streaming
+Content-type: application/json
+
+{
+	"plateform": "vostfree",
+	"url": "https://vostfree.tv/265-one-piece-985-vostfr-anime.html"
+}
+
+### Login to the API
+POST http://localhost:4000/api/user/login
+Content-type: application/json
+
+{
+	"user": "vostfree",
+	"password": "https://vostfree.tv/265-one-piece-985-vostfr-anime.html"
+}
