@@ -1,4 +1,4 @@
-const itachi = require("../lib");
+const itachi = require("../../lib");
 
 test('Search "L\'attaque des Titans" on all availables websites', async () => {
     const results = await itachi.getAnimes("L'attaque des Titans");
