@@ -1,3 +1,3 @@
 module.exports = {
-    malServices: require("./mal"),
+    animeServices: require("./anime"),
 };
