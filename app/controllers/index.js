@@ -1,4 +1,5 @@
 module.exports = {
-    animeController: require("../controllers/anime"),
-    userController: require("../controllers/user"),
+    animeController: require("./anime"),
+    userController: require("./user"),
+    tokenController: require("./token"),
 };

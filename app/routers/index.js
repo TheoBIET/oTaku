@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { userController, animeController } = require("../controllers");
+const {
+    userController,
+    animeController,
+    tokenController,
+} = require("../controllers");
 const { tokenMiddelware } = require("../middlewares");
 
 router.get("/", (req, res) => {
@@ -8,14 +12,7 @@ router.get("/", (req, res) => {
 });
 
 router
-    .post("/token", (req, res) => {
-        const refreshToken = req.body.token;
-        if (!refreshToken) {
-            res.status(401).json("You must provide a token");
-        }
-
-        // TODO: Check if token exist in database
-    })
+    .post("/token", tokenController.checkIfExists)
 
     .post(
         "/animes/search",
