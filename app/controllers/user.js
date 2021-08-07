@@ -224,9 +224,9 @@ module.exports = {
         }
     },
     async deleteAccount(req, res) {
-        // TODO: Delete the user account. Request the current password, and change the account status to inactive.
+        // TODO: Delete the user account. Request the current password, and change the account status to inactive. //A VERIFIER !!!
             try {
-                userToDelete = User.findByPk(
+                const userToDelete = User.findByPk(
                     req.user.id
                 );
                 if (!user) {
@@ -242,6 +242,8 @@ module.exports = {
                     password,
                 });
             }
+
+            userToDelete.destroy();
 
             } catch (error) {
                 return res.status(400).send({
