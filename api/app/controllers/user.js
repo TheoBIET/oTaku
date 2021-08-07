@@ -1,15 +1,10 @@
-const {
-    User,
-    Token
-} = require("../models");
+const { User, Token } = require("../models");
 const bcrypt = require("bcrypt");
 const {
     Op
 } = require("sequelize");
 
-const {
-    jwtUtils
-} = require("../utils");
+const { jwtUtils } = require("../utils");
 
 // TODO : JSDoc
 module.exports = {
@@ -93,11 +88,7 @@ module.exports = {
 
             await tokenToSave.save();
 
-            return res.json({
-                ...userData,
-                accessToken,
-                refreshToken
-            });
+            return res.json({ ...userData, accessToken, refreshToken });
         } catch (error) {
             console.error(error);
             return res.status(500).send({
@@ -168,27 +159,7 @@ module.exports = {
     },
     async updateInformations(req, res) {
         // TODO: Update the user informations in the database except the password
-        try {
-            const userUpdate = await User.findByPk(
-                req.user.id
-            );
-            if (!user) {
-                return res.status(404).json({
-                    message: "User not found",
-                });
-            }
-            userUpdate = {
-                ...userUpdate,
-                ...req.body
-            }
-            userUpdate.save();
-            res.json(userUpdate);
-
-        } catch (error) {
-            return res.status(400).send({
-                message: "Internal server error. Please retry later",
-            });
-        }
+        res.json("Currently not implemented");
     },
     async updatePassword(req, res) {
         // TODO: Update the user password in the database. Ask for the old password, verify it, then re-insert the new one after checking its strength and hashing it
@@ -225,6 +196,7 @@ module.exports = {
     },
     async deleteAccount(req, res) {
         // TODO: Delete the user account. Request the current password, and change the account status to inactive. //A VERIFIER !!!
+        console.log(req.params.id)
             try {
                 const userToDelete = User.findByPk(
                     req.user.id
@@ -234,7 +206,7 @@ module.exports = {
                         message: "User not found",
                     });
                 };
-                const isMatch = await bcrypt.compare(password, user.password);
+                const isMatch = await bcrypt.compare(password, user.passwo);
 
             if (!isMatch) {
                 return res.status(401).json({
@@ -247,7 +219,7 @@ module.exports = {
 
             } catch (error) {
                 return res.status(400).send({
-                    message: "Internal server error. Please retry later",
+                    message: "Internal server error. Please retry later"+ error,
                 }); 
             }
         // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
