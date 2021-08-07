@@ -20,6 +20,7 @@ User.belongsTo(Role, {
 User.hasMany(Token, {
     as: "tokens",
     foreignKey: "user_id",
+    onDelete: 'CASCADE'
 });
 
 Token.belongsTo(User, {
@@ -27,6 +28,7 @@ Token.belongsTo(User, {
     foreignKey: {
         name: "user_id",
         allowNull: false,
+        onDelete: 'CASCADE',
     },
 });
 

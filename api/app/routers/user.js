@@ -16,7 +16,7 @@ router
     )
 
     .delete(
-        "/user/delete",
+        "/user/:id/delete",
         tokenMiddleware.authenticateToken,
         userController.deleteAccount
     )
