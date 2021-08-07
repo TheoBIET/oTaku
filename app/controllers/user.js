@@ -2,6 +2,8 @@ const { User } = require("../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
 
+const { jwtUtils } = require("../utils");
+
 // TODO : JSDoc
 module.exports = {
     async getProfile(req, res) {
@@ -68,7 +70,11 @@ module.exports = {
                 });
             }
 
-            return res.json(user);
+            const userData = user.toJSON();
+            const accessToken = jwtUtils.generateAccessToken(userData);
+            const refreshToken = jwtUtils.generateRefreshToken(userData);
+
+            return res.json({ ...userData, accessToken, refreshToken });
         } catch (error) {
             console.error(error);
             return res.status(500).send({
@@ -126,14 +132,15 @@ module.exports = {
     },
     updateInformations(req, res) {
         // TODO: Update the user informations in the database except the password
-        res.json("OK");
+        res.json("Currently not implemented");
     },
     updatePassword(req, res) {
         // TODO: Update the user password in the database. Ask for the old password, verify it, then re-insert the new one after checking its strength and hashing it
-        res.json("OK");
+        res.json("Currently not implemented");
     },
     deleteAccount(req, res) {
         // TODO: Delete the user account. Request the current password, and change the account status to inactive.
         // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
+        res.json("Currently not implemented");
     },
 };
