@@ -1,10 +1,15 @@
-const { User, Token } = require("../models");
+const {
+    User,
+    Token
+} = require("../models");
 const bcrypt = require("bcrypt");
 const {
     Op
 } = require("sequelize");
 
-const { jwtUtils } = require("../utils");
+const {
+    jwtUtils
+} = require("../utils");
 
 // TODO : JSDoc
 module.exports = {
@@ -88,7 +93,11 @@ module.exports = {
 
             await tokenToSave.save();
 
-            return res.json({ ...userData, accessToken, refreshToken });
+            return res.json({
+                ...userData,
+                accessToken,
+                refreshToken
+            });
         } catch (error) {
             console.error(error);
             return res.status(500).send({
@@ -174,7 +183,7 @@ module.exports = {
                 });
             }
             user = {
-            ...userUpdatePassword.password
+                ...userUpdatePassword.password
             }
             userUpdatePassword.save();
             res.json(userUpdatePassword);
@@ -195,34 +204,37 @@ module.exports = {
         }
     },
     async deleteAccount(req, res) {
-        // TODO: Delete the user account. Request the current password, and change the account status to inactive. //A VERIFIER !!!
-        console.log(req.params.id)
-            try {
-                const userToDelete = User.findByPk(
-                    req.user.id
-                );
-                if (!user) {
-                    return res.status(404).json({
-                        message: "User not found",
-                    });
-                };
-                const isMatch = await bcrypt.compare(password, user.passwo);
+        // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
+
+        try {
+            const userToDelete = await User.findByPk(
+                req.user.id
+            );
+            if (!userToDelete) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            };
+            const isMatch = await bcrypt.compare(req.body.password, userToDelete.password);
 
             if (!isMatch) {
                 return res.status(401).json({
                     message: "Incorrect password",
-                    password,
                 });
             }
 
-            userToDelete.destroy();
+            await userToDelete.destroy();
 
-            } catch (error) {
-                return res.status(400).send({
-                    message: "Internal server error. Please retry later"+ error,
-                }); 
-            }
-        // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
-        res.json("Currently not implemented");
+            res.json({
+                message: 'User is deleted'
+            });
+
+        } catch (error) {
+            console.log(error)
+            return res.status(400).send({
+                message: "Internal server error. Please retry later"
+            });
+        };
+
     },
 };

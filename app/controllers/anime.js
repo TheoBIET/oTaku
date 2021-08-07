@@ -1,6 +1,6 @@
 const itachi = require("../lib/itachi");
 const mal = require("../lib/mal-ext");
-const { malServices } = require("../services");
+const { animeServices } = require("../services");
 
 const MAL_BEARER = process.env.MAL_BEARER;
 
@@ -11,7 +11,7 @@ module.exports = {
             const { name } = req.body;
             const results = await mal.search(name, MAL_BEARER);
             return res.json(
-                results.map((anime) => malServices.format(anime.node))
+                results.map((anime) => animeServices.format(anime.node))
             );
         } catch (error) {
             console.error(error);
@@ -25,7 +25,7 @@ module.exports = {
         try {
             const { animeID } = req.params;
             const results = await mal.getDetails(animeID, MAL_BEARER);
-            return res.json(malServices.format(results));
+            return res.json(animeServices.format(results));
         } catch (error) {
             console.error(error);
             res.status(500).json({
@@ -38,7 +38,7 @@ module.exports = {
         try {
             const results = await mal.getRanking(MAL_BEARER);
             return res.json(
-                results.map((anime) => malServices.format(anime.node))
+                results.map((anime) => animeServices.format(anime.node))
             );
         } catch (error) {
             console.error(error);
