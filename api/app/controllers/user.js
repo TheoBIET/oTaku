@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Token } = require("../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
 
@@ -73,6 +73,13 @@ module.exports = {
             const userData = user.toJSON();
             const accessToken = jwtUtils.generateAccessToken(userData);
             const refreshToken = jwtUtils.generateRefreshToken(userData);
+
+            const tokenToSave = new Token({
+                user_id: user.id,
+                token: refreshToken,
+            });
+
+            await tokenToSave.save();
 
             return res.json({ ...userData, accessToken, refreshToken });
         } catch (error) {
