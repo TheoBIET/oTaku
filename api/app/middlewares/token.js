@@ -3,9 +3,9 @@ const { jwtUtils } = require("../utils");
 module.exports = {
     authenticateToken: (req, res, next) => {
         const authHeader = req.headers.authorization;
-        const token = authHeader.split(" ")[1];
+        const token = authHeader?.split(" ")[1];
 
-        if (token === "undefined") {
+        if (token === "undefined" || !token) {
             return res.status(401).send({
                 message: "No token provided.",
             });
