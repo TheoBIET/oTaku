@@ -1,23 +1,14 @@
-const {
-    User,
-    Token
-} = require("../models");
+const { User, Token } = require("../models");
 const bcrypt = require("bcrypt");
-const {
-    Op
-} = require("sequelize");
+const { Op } = require("sequelize");
 
-const {
-    jwtUtils
-} = require("../utils");
+const { jwtUtils } = require("../utils");
 
 // TODO : JSDoc
 module.exports = {
     async getProfile(req, res) {
         try {
-            const {
-                username
-            } = req.params;
+            const { username } = req.params;
 
             const user = await User.findOne({
                 where: {
@@ -43,10 +34,7 @@ module.exports = {
     },
     async login(req, res) {
         try {
-            const {
-                login,
-                password
-            } = req.body;
+            const { login, password } = req.body;
 
             if (!login || !password) {
                 return res.status(400).json({
@@ -96,7 +84,7 @@ module.exports = {
             return res.json({
                 ...userData,
                 accessToken,
-                refreshToken
+                refreshToken,
             });
         } catch (error) {
             console.error(error);
@@ -107,15 +95,11 @@ module.exports = {
     },
     async createAccount(req, res) {
         try {
-            const {
-                username,
-                password,
-                email
-            } = req.body;
+            const { username, password, email } = req.body;
 
             if (!password || !username || !email) {
                 return res.status(400).json({
-                    message: "Check credentials!"
+                    message: "Check credentials!",
                 });
             }
 
@@ -129,7 +113,7 @@ module.exports = {
 
             if (usernameIsTaken) {
                 return res.status(400).json({
-                    message: "Username is taken!"
+                    message: "Username is taken!",
                 });
             }
 
@@ -143,7 +127,7 @@ module.exports = {
 
             if (emailIsTaken) {
                 return res.status(400).json({
-                    message: "Email is taken!"
+                    message: "Email is taken!",
                 });
             }
 
@@ -157,7 +141,7 @@ module.exports = {
 
             return res.status(200).json({
                 message: "Account created!",
-                user
+                user,
             });
         } catch (error) {
             console.error(error);
@@ -171,32 +155,36 @@ module.exports = {
         res.json("Currently not implemented");
     },
     async updatePassword(req, res) {
-        // TODO: Update the user password in the database. Ask for the old password, verify it, then re-insert the new one after checking its strength and hashing it
-
         try {
-            const userUpdatePassword = await User.findByPk(
-                req.user.id
-            );
-            if (!user) {
+            const { oldPassword, newPassword } = req.body;
+            const userUpdatePassword = await User.findByPk(req.user.id);
+
+            if (!userUpdatePassword) {
                 return res.status(404).json({
                     message: "User not found",
                 });
             }
-            user = {
-                ...userUpdatePassword.password
-            }
-            userUpdatePassword.save();
-            res.json(userUpdatePassword);
 
-            const isMatch = await bcrypt.compare(password, user.password);
+            const isMatch = await bcrypt.compare(
+                oldPassword,
+                userUpdatePassword.password
+            );
 
             if (!isMatch) {
                 return res.status(401).json({
                     message: "Incorrect password",
-                    password,
                 });
             }
 
+            const newPasswordHash = bcrypt.hashSync(newPassword, 8);
+
+            userUpdatePassword.password = newPasswordHash;
+
+            await userUpdatePassword.save();
+
+            return res.json({
+                message: "Password updated. Please login again",
+            });
         } catch (error) {
             return res.status(400).send({
                 message: "Internal server error. Please retry later",
@@ -207,15 +195,16 @@ module.exports = {
         // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
 
         try {
-            const userToDelete = await User.findByPk(
-                req.user.id
-            );
+            const userToDelete = await User.findByPk(req.user.id);
             if (!userToDelete) {
                 return res.status(404).json({
                     message: "User not found",
                 });
-            };
-            const isMatch = await bcrypt.compare(req.body.password, userToDelete.password);
+            }
+            const isMatch = await bcrypt.compare(
+                req.body.password,
+                userToDelete.password
+            );
 
             if (!isMatch) {
                 return res.status(401).json({
@@ -226,15 +215,13 @@ module.exports = {
             await userToDelete.destroy();
 
             res.json({
-                message: 'User is deleted'
+                message: "User is deleted",
             });
-
         } catch (error) {
-            console.log(error)
+            console.log(error);
             return res.status(400).send({
-                message: "Internal server error. Please retry later"
+                message: "Internal server error. Please retry later",
             });
-        };
-
+        }
     },
 };
