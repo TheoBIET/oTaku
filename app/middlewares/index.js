@@ -1,3 +1,3 @@
 module.exports = {
-    tokenMiddelware: require("./token"),
+    tokenMiddleware: require("./token"),
 };

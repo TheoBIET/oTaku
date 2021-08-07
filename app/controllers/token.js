@@ -2,7 +2,7 @@ const { Token } = require("../models");
 const { jwtUtils } = require("../utils");
 
 module.exports = {
-    checkIfExists: (req, res) => {
+    refreshToken: (req, res) => {
         const refreshToken = req.body.token;
 
         if (!refreshToken) {
