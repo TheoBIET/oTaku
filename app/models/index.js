@@ -1,5 +1,6 @@
 const Role = require("./role");
 const User = require("./user");
+const Token = require("./token");
 
 Role.hasMany(User, {
     as: "users",
@@ -15,7 +16,22 @@ User.belongsTo(Role, {
     },
 });
 
+// TODO : Make a relation 1:1 and not 1:N
+User.hasMany(Token, {
+    as: "tokens",
+    foreignKey: "user_id",
+});
+
+Token.belongsTo(User, {
+    as: "user",
+    foreignKey: {
+        name: "user_id",
+        allowNull: false,
+    },
+});
+
 module.exports = {
     Role,
     User,
+    Token,
 };
