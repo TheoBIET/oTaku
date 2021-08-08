@@ -1,0 +1,138 @@
+.Anime {
+    display: flex;
+    min-height: 100%;
+
+    .Anime__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        max-height: 100%;
+    }
+
+    .Anime__right {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        font-weight: bold;
+
+        h3 {
+            font-size: 3em;
+            padding: 0.2em 0;
+            font-family: "Otomanopee One", sans-serif;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            select {
+                font-size: 0.5em;
+                padding-top: 0.3em;
+                margin-right: 1em;
+            }
+        }
+
+        .Anime__right__list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+
+            .Anime__right__item {
+                width: 50%;
+                padding: 1em;
+
+                .Anime__right__item__link {
+                    box-shadow: $card_informations_box_shadow;
+                    display: flex;
+                    font-size: large;
+                    padding: 1em;
+                    margin: 0.5em 0;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+        }
+
+        .Anime__right__video {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .wrapper {
+                position: relative;
+                width: 80%;
+                height: 40em;
+
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                }
+            }
+        }
+    }
+
+    .Anime__left__title {
+        font-weight: bold;
+        font-family: "Otomanopee One", sans-serif;
+        text-align: center;
+
+        h2 {
+            font-size: 2.5em;
+            padding: 0.2em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #93c;
+            padding: 0.2em;
+        }
+    }
+
+    .Anime__left__poster {
+        width: 100%;
+        text-align: center;
+
+        img {
+            width: 70%;
+            border-radius: 10px;
+            transition: 0.5s ease-in-out;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+                rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+                rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .Anime__left__info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2em;
+
+        div {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            text-align: center;
+            width: 30%;
+            padding: 1em;
+            margin: 0.3em;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+#Profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+
+    & > * {
+        margin-bottom: 1rem;
+    }
+
+    #Profile__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        img {
+            width: 10%;
+            border-radius: 50%;
+        }
+    }
+
+    #Profile__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1rem 10rem;
+
+        strong {
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+    }
+}
