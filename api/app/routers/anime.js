@@ -10,11 +10,7 @@ router
         tokenMiddleware.authenticateToken,
         animeController.search
     )
-    .get(
-        "/animes/ranking",
-        tokenMiddleware.authenticateToken,
-        animeController.getRanking
-    )
+    .get("/animes/ranking", animeController.getRanking)
     .get(
         "/animes/:animeID(\\d+)/informations",
         tokenMiddleware.authenticateToken,
