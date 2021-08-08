@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import axios from "axios";
 
-function Anime({ }) {
+function Anime() {
 
     const [links, setLinks] = useState([]);
 
