@@ -254,24 +254,24 @@ module.exports = {
 };
 
 
-const schemaUser = Joi.object({
-    username: Joi.string(),
-    email : Joi.email()
-    .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net','io','fr'] } }),
+// const schemaUser = Joi.object({
+//     username: Joi.string(),
+//     email : Joi.email()
+//     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net','io','fr'] } }),
 
-    password: Joi.string()
-        .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-    repeat_password: Joi.ref('password'),
+//     password: Joi.string()
+//         .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+//     repeat_password: Joi.ref('password'),
     
-    access_token: [
-        Joi.string(),
-    ],
+//     access_token: [
+//         Joi.string(),
+//     ],
 
-    first_name: Joi.string(),
-    last_name: Joi.string(),
-    description: Joi.string(),
-    my_anime_list_username: Joi.string(),
-    avatar_url: Joi.string(),
+//     first_name: Joi.string(),
+//     last_name: Joi.string(),
+//     description: Joi.string(),
+//     my_anime_list_username: Joi.string(),
+//     avatar_url: Joi.string(),
 
 
-});
+// });
