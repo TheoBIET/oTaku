@@ -28,8 +28,9 @@ function Home() {
                     return (
                         // TODO: Export this part to an AnimeLink Component
                         <article key={item.mal_id} className="AnimeCard">
-                            <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
-                            <div className="AnimeCard__Informations">
+                            <NavLink to={`/animes/${item.mal_id}/about`}>
+                                <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
+                            </NavLink>                            <div className="AnimeCard__Informations">
                                 <h3 className="AnimeCard__Informations__title">
                                     {item.en_title}
                                     <span className="japan"></span>

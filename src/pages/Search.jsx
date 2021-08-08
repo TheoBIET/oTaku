@@ -41,7 +41,7 @@ function Search() {
                     return (
                         // TODO: Export this part to an AnimeLink Component
                         <div key={item.mal_id} className="AnimeCard">
-                            <NavLink to={`/animes/${item.mal_id}`}>
+                            <NavLink to={`/animes/${item.mal_id}/about`}>
                                 <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
                             </NavLink>
                             <div className="AnimeCard__Informations">
