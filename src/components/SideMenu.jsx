@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { logoutUserAction } from '../store/userActions';
 
 export function SideMenu({ user, onLogout }) {
-    console.log(user)
     return (
         <nav id="SideMenu">
             <NavLink to="/">
@@ -37,9 +36,6 @@ export const SideMenuStore = connect(
         user: userSelector(state)
     }),
     dispatch => ({
-        onLogout: () => {
-            console.log("J'v delete")
-            dispatch(logoutUserAction())
-        }
+        onLogout: () => dispatch(logoutUserAction())
     })
 )(SideMenu);

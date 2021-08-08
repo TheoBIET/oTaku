@@ -8,9 +8,6 @@ import { useState } from 'react';
 import axios from 'axios';
 
 export function Login({ user, onLogin }) {
-    console.log(user);
-    console.log(onLogin);
-
     const [usernameLogin, setUsernameLogin] = useState('');
     const [passwordLogin, setPasswordLogin] = useState('');
 
@@ -190,7 +187,7 @@ export function Login({ user, onLogin }) {
     }
 
     return (
-        <>
+        <div id="Login">
             <form className="Login__form">
                 <h2 className="title is-2">Inscrivez-vous</h2>
                 <div className="field">
@@ -253,7 +250,7 @@ export function Login({ user, onLogin }) {
                 </div>
                 <div className="my-button button" onClick={handleLogin}>Connexion</div>
             </form>
-        </ >
+        </div>
     )
 }
 
