@@ -168,6 +168,7 @@ module.exports = {
     },
     async updateInformations(req, res) {
         // TODO: Update the user informations in the database except the password
+
         res.json("Currently not implemented");
     },
     async updatePassword(req, res) {
@@ -185,7 +186,7 @@ module.exports = {
             user = {
                 ...userUpdatePassword.password
             }
-            userUpdatePassword.save();
+            
             res.json(userUpdatePassword);
 
             const isMatch = await bcrypt.compare(password, user.password);
@@ -196,7 +197,9 @@ module.exports = {
                     password,
                 });
             }
-
+            
+            const userCryptedPassword=bcrypt.hashSync(userUpdatePassword, 8);
+            userCryptedPassword.save();
         } catch (error) {
             return res.status(400).send({
                 message: "Internal server error. Please retry later",
