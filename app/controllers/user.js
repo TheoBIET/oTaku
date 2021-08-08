@@ -37,7 +37,7 @@ module.exports = {
             const { login, password } = req.body;
 
             if (!login || !password) {
-                return res.status(400).json({
+                return res.status(401).json({
                     message: "Login and password are required",
                 });
             }
@@ -206,7 +206,7 @@ module.exports = {
                 message: "Password updated. Please login again",
             });
         } catch (error) {
-            return res.status(400).send({
+            return res.status(500).send({
                 message: "Internal server error. Please retry later",
             });
         }
@@ -240,7 +240,7 @@ module.exports = {
             });
         } catch (error) {
             console.log(error);
-            return res.status(400).send({
+            return res.status(500).send({
                 message: "Internal server error. Please retry later",
             });
         }
