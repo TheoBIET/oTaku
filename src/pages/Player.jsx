@@ -19,8 +19,6 @@ function Anime() {
                 },
             });
 
-            console.log(response)
-
             setLinks(response.data);
         }
 

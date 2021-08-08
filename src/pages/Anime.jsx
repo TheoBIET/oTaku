@@ -20,8 +20,6 @@ function Anime() {
                 },
             });
 
-            console.log(response)
-
             setAnime(response.data);
         }
 
@@ -37,8 +35,6 @@ function Anime() {
                 },
             });
 
-            console.log(response)
-
             setWebsites(response.data);
         }
 
@@ -52,7 +48,7 @@ function Anime() {
                 <div>
                     <h1>{anime.name}</h1>
                     <h1>{anime.japName}</h1>
-                    <img src={anime.imageUrl} alt="" />
+                    <img src={anime.imageUrl} alt={anime.name} />
                     <p>{anime.description}</p>
                     <ul>
                         {anime.genres.map(genre => (
@@ -67,7 +63,6 @@ function Anime() {
                     <iframe src={anime.trailer} title={anime.name} width="560" height="315" frameBorder="0" allowFullScreen></iframe>
                     <ul>
                         {websites.length > 0 && websites.map((website, i) => {
-                            console.log(website);
                             return (
                                 <li key={website.plateform}>{website.plateform} ({website.language})
                                     <ul>

@@ -1,7 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { FiLogOut, FiUser, FiHome, FiSearch, FiSettings, FiBookmark } from 'react-icons/fi';
+import { userSelector } from '../store/userSelectors';
+import { connect } from 'react-redux';
+import { logoutUserAction } from '../store/userActions';
 
-function SideMenu() {
+export function SideMenu({ user, onLogout }) {
+    console.log(user)
     return (
         <nav id="SideMenu">
             <NavLink to="/">
@@ -13,17 +17,29 @@ function SideMenu() {
             <NavLink to="/profile">
                 <FiUser className="icon" />
             </NavLink>
-            <NavLink to="/bookmarks">
-                <FiBookmark className="icon" />
-            </NavLink>
+            {user.isAuthenticated ?
+                <NavLink to="/bookmarks">
+                    <FiBookmark className="icon" />
+                </NavLink> : null}
             <NavLink to="/settings">
                 <FiSettings className="icon" />
             </NavLink>
-            <NavLink to="/logout">
-                <FiLogOut className="icon" />
-            </NavLink>
+            {user.isAuthenticated ?
+                <NavLink to="/profile" onClick={onLogout}>
+                    <FiLogOut className="icon" />
+                </NavLink> : null}
         </nav>
     )
 }
 
-export default SideMenu;
+export const SideMenuStore = connect(
+    state => ({
+        user: userSelector(state)
+    }),
+    dispatch => ({
+        onLogout: () => {
+            console.log("J'v delete")
+            dispatch(logoutUserAction())
+        }
+    })
+)(SideMenu);

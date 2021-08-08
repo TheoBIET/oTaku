@@ -5,7 +5,7 @@ const initialState = {
 
 export const LOGIN_USER = "LOGIN_USER";
 export const UPDATE_USER = "UPDATE_USER";
-export const DELETE_USER = "DELETE_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 export function userReducer(state = initialState, action) {
     switch (action.type) {
@@ -19,10 +19,10 @@ export function userReducer(state = initialState, action) {
                 ...state,
                 ...action.payload,
             };
-        case DELETE_USER:
+        case LOGOUT_USER:
             return {
                 ...state,
-                ...initialState,
+                ...action.payload,
             };
         default:
             return state;

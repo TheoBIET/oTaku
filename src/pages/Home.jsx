@@ -25,10 +25,9 @@ function Home() {
             </header>
             <section id="Home__animes">
                 {animes.map((item) => {
-                    console.log(item)
                     return (
                         // TODO: Export this part to an AnimeLink Component
-                        <article key={item.id} className="AnimeCard">
+                        <article key={item.mal_id} className="AnimeCard">
                             <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
                             <div className="AnimeCard__Informations">
                                 <h3 className="AnimeCard__Informations__title">
@@ -40,7 +39,7 @@ function Home() {
                                 </h4>
                                 <h5 className={"AnimeCard__Informations__nsfw --" + item.nsfw_color}>🥵</h5>
                                 <ul className="AnimeCard__Informations__categoryList">
-                                    {item.genres.slice(0, 3).map(category => <li key={category}>{category}</li>)}
+                                    {item.genres.slice(0, 3).map((category, i) => <li key={i}>{category}</li>)}
                                 </ul>
                                 <p>{item.synopsis}</p>
                                 <div className="AnimeCard__Informations__icons">
