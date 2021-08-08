@@ -151,8 +151,28 @@ module.exports = {
         }
     },
     async updateInformations(req, res) {
-        // TODO: Update the user informations in the database except the password
-        res.json("Currently not implemented");
+        try {
+            const userToUpdate = await User.findByPk(req.user.id);
+
+            if (!userToUpdate) {
+                return res.status(404).json({
+                    message: "User not found",
+                });
+            }
+
+            await userToUpdate.update({
+                ...req.body,
+            });
+
+            return res.status(200).json({
+                message: "Informations updated",
+            });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                message: "Internal server error. Please retry later",
+            });
+        }
     },
     async updatePassword(req, res) {
         try {
@@ -193,16 +213,17 @@ module.exports = {
     },
     async deleteAccount(req, res) {
         // TODO: (Add a database migration, add a column "account_is_deactivated" and "date_of_deactivation" ). After 15 days, if the user has not reconnected, delete the account and the related data. So you have to add a function to set account_is_deactivated back to false in the login method
-
         try {
             const userToDelete = await User.findByPk(req.user.id);
+
             if (!userToDelete) {
                 return res.status(404).json({
                     message: "User not found",
                 });
             }
+
             const isMatch = await bcrypt.compare(
-                req.body.password,
+                req.body.password ?? "",
                 userToDelete.password
             );
 
