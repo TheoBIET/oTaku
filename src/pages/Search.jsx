@@ -29,6 +29,7 @@ function Search() {
                 <input
                     type="text"
                     onChange={(e) => handleSearch(e.target.value)}
+                    placeholder="Rechercher un anime..."
                 />
                 <div onClick={(e) => handleSearch(e.target.value)}>
                     <FiSearch class="icon" />

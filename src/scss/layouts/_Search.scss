@@ -4,11 +4,12 @@
     #Search-Form {
         display: flex;
         justify-content: center;
+        padding: 2em;
 
         input {
             background-color: $white;
             padding: 0.1em 0.2em;
-            font-size: 2em;
+            font-size: 2.5em;
             border: none;
             border-bottom: 2px solid $purple;
         }

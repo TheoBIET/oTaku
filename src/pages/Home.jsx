@@ -21,7 +21,7 @@ function Home() {
             <header id="Home__header">
                 <h1 id="Home__header__title">oTaku</h1>
                 <h2>Regarder le manga qui vous plaît sans publicités!</h2>
-                <NavLink to="/search" className="button purple"><FiSearch className="icon" /> Rechercher</NavLink>
+                <NavLink to="/search" className="my-button purple"><FiSearch className="icon" /> Rechercher</NavLink>
             </header>
             <section id="Home__animes">
                 {animes.map((item) => {

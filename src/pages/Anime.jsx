@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 
-function Anime({ }) {
+function Anime() {
 
     const [anime, setAnime] = useState({});
     const [websites, setWebsites] = useState([]);
@@ -64,7 +64,7 @@ function Anime({ }) {
                             <li key={genre}>{genre}</li>
                         ))}
                     </ul>
-                    <iframe src={anime.trailer}></iframe>
+                    <iframe src={anime.trailer} title={anime.name} width="560" height="315" frameBorder="0" allowFullScreen></iframe>
                     <ul>
                         {websites.length > 0 && websites.map((website, i) => {
                             console.log(website);
