@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { FiSearch } from 'react-icons/fi'
+import { NavLink } from "react-router-dom";
 
 function Search() {
 
@@ -40,7 +41,9 @@ function Search() {
                     return (
                         // TODO: Export this part to an AnimeLink Component
                         <div key={item.mal_id} className="AnimeCard">
-                            <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
+                            <NavLink to={`/animes/${item.mal_id}`}>
+                                <div className="AnimeCard__Picture" style={{ background: `url(${item.medium_picture_url})no-repeat center center/cover` }} />
+                            </NavLink>
                             <div className="AnimeCard__Informations">
                                 <h3 className="AnimeCard__Informations__title">
                                     {item.en_title}

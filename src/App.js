@@ -22,7 +22,7 @@ function App() {
                 <Route exact path="/" component={Home} />
                 <Route path="/search" component={Search} />
                 <Route path="/animes/streaming" component={Player} />
-                <Route path="/animes" component={Anime} exact />
+                <Route path="/animes/:id" component={Anime} exact />
                 <Route path="/profile" component={ProfileStore} exact />
                 <Route path="/bookmarks" component={Wait} exact />
                 <Route path="/settings" component={Wait} exact />
