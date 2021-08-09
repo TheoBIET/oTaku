@@ -14,8 +14,8 @@ const seeding = {
 
     async seedRoles() {
         log.info("Seeding Roles...");
-        let i;
-        for (i = 0; i < roleSeeding.length; i++) {
+        let i = 0;
+        for (i = 0; i < roleSeeding.length; i += 1) {
             await Role.create(roleSeeding[i]);
         }
         log.success(`Roles seeding is done! ${i} roles created!`);

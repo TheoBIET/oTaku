@@ -51,7 +51,7 @@ module.exports = {
     async websites(req, res) {
         try {
             const { name } = req.body;
-
+            console.log(req.body);
             if (!name) {
                 return res.status(400).json({
                     message: "You must provide a name.",
