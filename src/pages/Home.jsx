@@ -10,7 +10,7 @@ function Home() {
     const [loading, setLoading] = useState(true);
 
     async function loadAnimes() {
-        const response = await fetch("/api/animes/ranking");
+        const response = await fetch("http://localhost:4000/api/animes/ranking");
         const animes = await response.json();
         setLoading(false);
         setAnimes(animes);

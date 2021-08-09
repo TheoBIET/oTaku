@@ -29,7 +29,7 @@ export function Anime(props) {
         if (!websites.length && !isAlreadySearching && anime.en_title) {
             async function fetchWebsites(name) {
                 setScrapIsLoading(true);
-                const url = `/api/animes/websites`;
+                const url = `http://localhost:4000/api/animes/websites`;
                 const data = {
                     name,
                 };
@@ -55,7 +55,7 @@ export function Anime(props) {
 
     async function fetchStreamingLinks(plateform, url) {
         setScrapIsLoading(true);
-        const urlAPI = `/api/animes/streaming`;
+        const urlAPI = `http://localhost:4000/api/animes/streaming`;
         const data = {
             plateform,
             url,
