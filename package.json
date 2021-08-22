@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/TheoBIET/otaku-API#readme",
     "dependencies": {
+        "axios": "^0.21.1",
         "bcrypt": "^5.0.1",
         "cheerio": "^1.0.0-rc.3",
         "cors": "^2.8.5",
