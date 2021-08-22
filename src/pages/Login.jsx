@@ -70,7 +70,7 @@ export function Login({ user, onLogin }) {
                 });
             }
 
-            const url = `http://localhost:4000/api/user/login`;
+            const url = `tb-otaku-api.herokuapp.com/api/user/login`;
 
             const data = {
                 login: usernameLogin,
@@ -142,7 +142,7 @@ export function Login({ user, onLogin }) {
                 });
             }
 
-            const url = `http://localhost:4000/api/user/signup`;
+            const url = `tb-otaku-api.herokuapp.com/api/user/signup`;
 
             const data = {
                 username: usernameSignup,

@@ -9,7 +9,7 @@ function Search() {
 
     async function handleSearch(search) {
         if (search.length > 0) {
-            const url = `http://localhost:4000/api/animes/search`;
+            const url = `tb-otaku-api.herokuapp.com/api/animes/search`;
             const data = {
                 name: search,
             };

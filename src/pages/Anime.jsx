@@ -17,7 +17,7 @@ export function Anime(props) {
     useEffect(function () {
         if (!anime.en_title) {
             async function fetchInformations() {
-                const url = `http://localhost:4000/api/animes/${props.match.params.id}/informations`;
+                const url = `tb-otaku-api.herokuapp.com/api/animes/${props.match.params.id}/informations`;
                 const response = await axios.get(url);
                 setAnime(response.data);
                 setLoading(false);
@@ -29,7 +29,7 @@ export function Anime(props) {
         if (!websites.length && !isAlreadySearching && anime.en_title) {
             async function fetchWebsites(name) {
                 setScrapIsLoading(true);
-                const url = `http://localhost:4000/api/animes/websites`;
+                const url = `tb-otaku-api.herokuapp.com/api/animes/websites`;
                 const data = {
                     name,
                 };
@@ -55,7 +55,7 @@ export function Anime(props) {
 
     async function fetchStreamingLinks(plateform, url) {
         setScrapIsLoading(true);
-        const urlAPI = `http://localhost:4000/api/animes/streaming`;
+        const urlAPI = `tb-otaku-api.herokuapp.com/api/animes/streaming`;
         const data = {
             plateform,
             url,
