@@ -11,7 +11,7 @@
         "axios": "^0.21.1",
         "dotenv": "^10.0.0",
         "electron-is-dev": "^2.0.0",
-        "node-sass": "^6.0.1",
+        "node-sass": "^7.0.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-icons": "^4.2.0",
